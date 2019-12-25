@@ -6,8 +6,8 @@ Vue.use(Router);
 const routes = [{
     path: '/',
     name: 'base',
+    component: () => import('@/layout/Base.vue'),
     children: [],
-    component: () => import('@/layout/Base.vue')
 }]
 
 const route = new Router({

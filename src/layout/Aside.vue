@@ -1,5 +1,5 @@
 <template>
-  <div></div>
+  <div class="aside"></div>
 </template>
 
 <script>
@@ -20,5 +20,13 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
+.aside {
+  position: fixed;
+  top: 40px;
+  bottom: 0;
+  left: 0;
+  width: 200px;
+  background-color: green;
+}
 </style>

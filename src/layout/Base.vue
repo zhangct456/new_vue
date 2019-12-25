@@ -1,18 +1,18 @@
 <template>
-  <div>
-    Base
+  <div class="base-box">
     <Header></Header>
     <Aside></Aside>
+    <div class="content"></div>
   </div>
 </template>
 
 <script>
-import { Aside } from "./Aside.vue";
-import { Header } from "./Header.vue";
+import Header from "./Header.vue";
+import Aside from "./Aside.vue";
 
 export default {
   name: "Base",
-  components: { Aside, Header },
+  components: { Header, Aside },
   props: {},
   data() {
     return {};
@@ -24,6 +24,14 @@ export default {
   mounted() {}
 };
 </script>
-
-<style lang="scss" scoped>
+<style lang="less" scoped>
+.base-box {
+  width: 100%;
+  height: 100%;
+  padding: 40px 0 0 200px;
+}
+.content {
+  width: 100%;
+  height: 100%;
+}
 </style>
