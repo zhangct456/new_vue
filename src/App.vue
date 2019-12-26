@@ -7,7 +7,16 @@
 <script>
 export default {
   name: "app",
-  components: {}
+  components: {},
+  provide() {
+    const screenWidth = document.body.clientWidth;
+    return { screenType: screenWidth > 1000 ? "computer" : "mobile" };
+  },
+  mounted() {
+    debugger
+    window.console.log(document.body.clientWidth);
+    window.console.log(this.screenType);
+  }
 };
 </script>
 

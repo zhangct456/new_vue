@@ -23,10 +23,10 @@ export default {
 <style lang="less" scoped>
 .aside {
   position: fixed;
-  top: 40px;
+  top: 60px;
   bottom: 0;
   left: 0;
   width: 200px;
-  background-color: green;
+  background-color: #133a63;
 }
 </style>
