@@ -2,7 +2,7 @@
   <div class="base-box">
     <Header></Header>
     <Aside></Aside>
-    <div class="content"></div>
+    <div class="content">{{screenType}}</div>
   </div>
 </template>
 
@@ -13,6 +13,7 @@ import Aside from "./Aside.vue";
 export default {
   name: "Base",
   components: { Header, Aside },
+  inject: ["screenType"],
   props: {},
   data() {
     return {};
@@ -21,14 +22,16 @@ export default {
   computed: {},
   methods: {},
   created() {},
-  mounted() {}
+  mounted() {
+    console.log(this.screenType);
+  }
 };
 </script>
 <style lang="less" scoped>
 .base-box {
   width: 100%;
   height: 100%;
-  padding: 40px 0 0 200px;
+  padding: 80px 0 0 200px;
 }
 .content {
   width: 100%;

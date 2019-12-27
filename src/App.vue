@@ -13,7 +13,6 @@ export default {
     return { screenType: screenWidth > 1000 ? "computer" : "mobile" };
   },
   mounted() {
-    debugger
     window.console.log(document.body.clientWidth);
     window.console.log(this.screenType);
   }

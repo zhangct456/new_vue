@@ -23,7 +23,7 @@ export default {
 <style lang="less" scoped>
 .aside {
   position: fixed;
-  top: 60px;
+  top: 80px;
   bottom: 0;
   left: 0;
   width: 200px;
