@@ -1,7 +1,11 @@
 import Vue from 'vue';
 import Router from 'vue-router';
+import echarts from 'echarts'
 
 Vue.use(Router);
+
+// 设置全局方法
+Vue.prototype.$echarts = echarts
 
 const routes = [{
     path: '/',

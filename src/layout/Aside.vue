@@ -2,13 +2,14 @@
   <div :class="{'aside-box-mobile': isMobile, 'aside-box-computer': !isMobile}">
     <AsideMenu v-if="!isMobile"></AsideMenu>
     <el-drawer
-      title="我是标题"
+      v-if="isMobile"
+      title="标题"
       :visible.sync="BaseLayout.showAside"
       :with-header="false"
       custom-class="aside-drawer"
       direction="ltr"
     >
-      <div v-if="isMobile" class="float-aside">
+      <div class="float-aside">
         <AsideMenu></AsideMenu>
       </div>
     </el-drawer>

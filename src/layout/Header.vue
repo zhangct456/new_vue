@@ -7,9 +7,7 @@
       <!-- <img class="logo" src="@/assets/logo.jpg" /> -->
     </div>
     <!-- 仅手机显示 -->
-    <div class="current-menu" v-show="isMobile" @click="openMenuFlag=true">
-      {{currentMenu}}
-      <i class="el-icon-arrow-down"></i>
+    <div class="current-menu" v-show="isMobile" @click="openMenuFlag=true">{{currentMenu}}<i class="el-icon-arrow-down"></i>
     </div>
     <!-- 仅电脑显示 -->
     <div class="menu-box" v-show="!isMobile || openMenuFlag" @click="openMenuFlag=false">

@@ -33,9 +33,7 @@ export default {
   watch: {},
   methods: {},
   created() {},
-  mounted() {
-    console.log(this.screenType);
-  }
+  mounted() {}
 };
 </script>
 <style lang="less" scoped>
@@ -43,15 +41,20 @@ export default {
   width: 100%;
   height: 100%;
   padding: 80px 0 0 200px;
+  background-color: #153c66;
 }
 .base-box-mobile {
   width: 100%;
   height: 100%;
   padding: 0;
   padding-top: 40px;
+  background-color: #153c66;
 }
 .content {
   width: 100%;
   height: 100%;
+  overflow-y: auto;
+  background-color: #153c66;
+  border: 1px solid #2e6fa7;
 }
 </style>
