@@ -1,20 +1,20 @@
 <template>
-  <div class="status-area">
+  <div class="status-area" :class="{'status-mobile': isMobile}">
     <div class="status">
       <div class="status-num">
-        <img class="img1" :style="{top: (100 - cpu) + 'px'}" src="@/assets/curve-line.png" />
+        <img class="img1" :style="{top: (100 - cpu) + '%'}" src="@/assets/curve-line.png" />
         <div class="text">{{cpu}}%</div>
       </div>
     </div>
     <div class="status">
       <div class="status-num">
-        <img class="img2" :style="{top: (100 - storge) + 'px'}" src="@/assets/curve-line.png" />
+        <img class="img2" :style="{top: (100 - storge) + '%'}" src="@/assets/curve-line.png" />
         <div class="text">{{storge}}%</div>
       </div>
     </div>
     <div class="status">
       <div class="status-num">
-        <img class="img3" :style="{top: (100 - disk) + 'px'}" src="@/assets/curve-line.png" />
+        <img class="img3" :style="{top: (100 - disk) + '%'}" src="@/assets/curve-line.png" />
         <div class="text">{{disk}}%</div>
       </div>
     </div>
@@ -25,6 +25,7 @@ export default {
   name: "HostStatus",
   components: {},
   props: {},
+  inject: ["screenType"],
   data() {
     return {
       cpu: 45,
@@ -32,8 +33,11 @@ export default {
       disk: 48
     };
   },
-  watch: {},
-  computed: {},
+  computed: {
+    isMobile() {
+      return this.screenType === "mobile";
+    }
+  },
   methods: {},
   created() {},
   mounted() {}
@@ -86,6 +90,16 @@ export default {
       -moz-animation: myfirst 5s linear 1s infinite alternate; /* Firefox */
       -webkit-animation: myfirst 5s linear 1s infinite alternate; /* Safari 和 Chrome */
       -o-animation: myfirst 5s linear 1s infinite alternate; /* Opera */
+    }
+  }
+}
+.status-mobile {
+  height: 200px;
+  .status {
+    .status-num {
+      margin-top: 50px;
+      height: 100px;
+      width: 100px;
     }
   }
 }
