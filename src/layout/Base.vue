@@ -13,10 +13,15 @@ import Aside from "./Aside.vue";
 export default {
   name: "Base",
   components: { Header, Aside },
+  provide() {
+    return { BaseLayout: this };
+  },
   inject: ["screenType"],
   props: {},
   data() {
-    return {};
+    return {
+      showAside: false
+    };
   },
   watch: {},
   computed: {},

@@ -1,10 +1,10 @@
 <template>
   <div class="header" :class="headerClass">
-    <div>
+    <div @click="BaseLayout.showAside = !BaseLayout.showAside">
       <i class="aside-ctrl el-icon-s-unfold"></i>
     </div>
     <div class="logo-box">
-      <img class="logo" src="@/assets/logo.jpg" />
+      <!-- <img class="logo" src="@/assets/logo.jpg" /> -->
     </div>
     <div class="current-menu" v-show="isMobile" @click="openMenuFlag=true">
       {{currentMenu}}
@@ -37,7 +37,7 @@ export default {
   name: "Header",
   components: {},
   props: {},
-  inject: ["screenType"],
+  inject: ["screenType", "BaseLayout"],
   data() {
     return {
       openMenuFlag: false,
