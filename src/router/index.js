@@ -6,8 +6,15 @@ Vue.use(Router);
 const routes = [{
     path: '/',
     name: 'base',
+    redirect: '/base/operation',
     component: () => import('@/layout/Base.vue'),
-    children: [],
+    children: [
+        {
+            path: '/base/operation',
+            name: 'operation',
+            component: () => import('@/pages/Operation/Operation')
+        }
+    ],
 }]
 
 const route = new Router({

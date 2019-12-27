@@ -6,13 +6,20 @@
     <div class="logo-box">
       <!-- <img class="logo" src="@/assets/logo.jpg" /> -->
     </div>
+    <!-- 仅手机显示 -->
     <div class="current-menu" v-show="isMobile" @click="openMenuFlag=true">
       {{currentMenu}}
       <i class="el-icon-arrow-down"></i>
     </div>
+    <!-- 仅电脑显示 -->
     <div class="menu-box" v-show="!isMobile || openMenuFlag" @click="openMenuFlag=false">
       <ul class="menu-list">
-        <li v-for="menu of menuList" :key="menu.title" @click="choiceMenu(menu)">
+        <li
+          :class="{'menu-li-active': currentMenu == menu.title}"
+          v-for="menu of menuList"
+          :key="menu.title"
+          @click="choiceMenu(menu)"
+        >
           <i class="icon" :class="menu.icon"></i>
           {{menu.title}}
         </li>
@@ -120,6 +127,10 @@ export default {
         }
       }
       li:hover {
+        color: white;
+        background-color: #337db4;
+      }
+      .menu-li-active {
         color: white;
         background-color: #337db4;
       }

@@ -49,9 +49,6 @@ export default {
     };
   },
   computed: {
-    headerClass() {
-      return this.screenType === "mobile" ? "mobile-header" : "computer-header";
-    },
     isMobile() {
       return this.screenType === "mobile";
     }

@@ -1,8 +1,10 @@
 <template>
-  <div class="base-box">
+  <div class="base-box" :class="{'base-box-mobile': isMobile}">
     <Header></Header>
     <Aside></Aside>
-    <div class="content">{{screenType}}</div>
+    <div class="content">
+      <router-view />
+    </div>
   </div>
 </template>
 
@@ -23,8 +25,12 @@ export default {
       showAside: false
     };
   },
+  computed: {
+    isMobile() {
+      return this.screenType === "mobile";
+    }
+  },
   watch: {},
-  computed: {},
   methods: {},
   created() {},
   mounted() {
@@ -37,6 +43,12 @@ export default {
   width: 100%;
   height: 100%;
   padding: 80px 0 0 200px;
+}
+.base-box-mobile {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  padding-top: 40px;
 }
 .content {
   width: 100%;
