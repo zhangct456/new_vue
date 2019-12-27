@@ -7,7 +7,12 @@
           <RunStatus></RunStatus>
         </div>
       </el-col>
-      <el-col class="box" :sm="24" :lg="12"></el-col>
+      <el-col class="box" :sm="24" :lg="12">
+        <div class="info-modular">
+          <div class="title">主机状态</div>
+          <HostStatus></HostStatus>
+        </div>
+      </el-col>
       <el-col class="box" :sm="24" :lg="12"></el-col>
       <el-col class="box" :sm="24" :lg="12"></el-col>
     </el-row>
@@ -16,10 +21,11 @@
 
 <script>
 import RunStatus from "./Operation/RunStatus";
+import HostStatus from "./Operation/HostStatus";
 
 export default {
   name: "Operation",
-  components: { RunStatus },
+  components: { RunStatus, HostStatus },
   props: {},
   data() {
     return {};
