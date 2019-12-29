@@ -1,6 +1,6 @@
 <template>
   <div class="device-group-home">
-    <el-row class="info-modular-row">
+    <el-row class="info-modular-row" :class="{'info-modular-row-flex': !isMobile}">
       <el-col class="info-modular-box" :sm="24" :lg="8">
         <div class="info-modular">
           <div class="title">资产检测</div>
@@ -40,10 +40,15 @@ export default {
   name: "Home",
   components: { Assets, RuningStatus, HostDescribe, InfoTables },
   props: {},
+  inject: ["screenType"],
   data() {
     return {};
   },
-  computed: {},
+  computed: {
+    isMobile() {
+      return this.screenType === "mobile";
+    }
+  },
   created() {},
   mounted() {},
   watch: {},

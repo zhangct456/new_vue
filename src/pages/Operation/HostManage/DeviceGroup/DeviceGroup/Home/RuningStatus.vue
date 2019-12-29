@@ -57,6 +57,7 @@ export default {
   }
 }
 .running-status-title {
+  padding-bottom: 50px;
   .status-title {
     text-align: center;
   }

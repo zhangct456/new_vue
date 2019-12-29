@@ -33,6 +33,9 @@ body,
   height: 100%;
 }
 .info-modular-row {
+  display: block;
+}
+.info-modular-row-flex {
   display: flex;
 }
 .info-modular-box {

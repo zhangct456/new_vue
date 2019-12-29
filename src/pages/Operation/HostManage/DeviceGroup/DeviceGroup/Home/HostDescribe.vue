@@ -1,5 +1,5 @@
 <template>
-  <div class="host-describe">
+  <div class="host-describe" :class="{'is-mobile': isMobile}">
     <p>运行时间：116 days, 7:07:53.31</p>
     <p>设备名称：WIN-4MITTOMD32B</p>
     <p>系统进程数：81</p>
@@ -25,10 +25,15 @@ export default {
   name: "HostDescribe",
   components: {},
   props: {},
+  inject: ["screenType"],
   data() {
     return {};
   },
-  computed: {},
+  computed: {
+    isMobile() {
+      return this.screenType === "mobile";
+    }
+  },
   created() {},
   mounted() {},
   watch: {},
@@ -41,5 +46,8 @@ export default {
   max-height: 250px;
   padding: 24px;
   overflow-y: auto;
+}
+.host-describe.is-mobile {
+  max-height: none;
 }
 </style>
