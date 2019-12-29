@@ -43,7 +43,7 @@ export default {
           title: "主机管理",
           path: "",
           children: [
-            { title: "设备组", path: "" },
+            { title: "设备组", path: "/operation/host-manage/device-group" },
             { title: "设备", path: "" },
             { title: "授权", path: "" }
           ]
@@ -64,6 +64,15 @@ export default {
   methods: {
     choiceMenu(i, j) {
       this.currentMenu = [i, j];
+      if (i !== -1 && j !== -1) {
+        if (this.menuList[i].children[j].path) {
+          this.$router.push({ path: this.menuList[i].children[j].path });
+        }
+      } else {
+        if (this.menuList[i].path) {
+          this.$router.push({ path: this.menuList[i].path });
+        }
+      }
     }
   },
   created() {},

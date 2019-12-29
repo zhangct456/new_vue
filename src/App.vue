@@ -19,16 +19,53 @@ export default {
 };
 </script>
 
-<style>
+<style lang="less">
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  color: white;
 }
 html,
 body,
 #app {
   width: 100%;
   height: 100%;
+}
+.info-modular-row {
+  display: flex;
+}
+.info-modular-box {
+  padding: 5px;
+  .info-modular {
+    height: 100%;
+    border-radius: 5px;
+    border: 1px solid #2e6fa7;
+    overflow: hidden;
+    .title {
+      color: white;
+      font-size: 12px;
+      line-height: 30px;
+      padding: 0 24px;
+      background-color: #2e6fa7;
+    }
+  }
+}
+::-webkit-scrollbar {
+  /*滚动条整体样式*/
+  width: 5px; /*高宽分别对应横竖滚动条的尺寸*/
+  height: 1px;
+}
+::-webkit-scrollbar-thumb {
+  /*滚动条里面小方块*/
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  background: #0490d0;
+}
+::-webkit-scrollbar-track {
+  /*滚动条里面轨道*/
+  -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  background: #ededed;
 }
 </style>
