@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-row class="input-content">
+    <el-row class="input-content" :class="{'is-mobile': isMobile}">
       <el-col :sm="24" :lg="4">
         <el-col class="label" :span="10">进程号：</el-col>
         <el-col :span="14">
@@ -57,6 +57,7 @@ export default {
   name: "ProcessTable",
   components: {},
   props: {},
+  inject: ["screenType"],
   data() {
     return {
       processNo: "",
@@ -67,7 +68,11 @@ export default {
       tableData: []
     };
   },
-  computed: {},
+  computed: {
+    isMobile() {
+      return this.screenType === "mobile";
+    }
+  },
   created() {},
   mounted() {},
   watch: {},
@@ -89,6 +94,11 @@ export default {
   .label {
     white-space: nowrap;
     padding-left: 10px;
+  }
+}
+.input-content.is-mobile {
+  .label {
+    text-align: left;
   }
 }
 .table {
