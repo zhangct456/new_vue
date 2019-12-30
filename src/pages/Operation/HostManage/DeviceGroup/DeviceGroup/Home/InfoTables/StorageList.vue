@@ -14,19 +14,24 @@
       :cell-style="{color: '#999'}"
       style="width: 100%"
     >
-      <el-table-column prop="id" label="序号"></el-table-column>
-      <el-table-column prop="name" label="跳数"></el-table-column>
-      <el-table-column prop="type" label="路由表类型"></el-table-column>
-      <el-table-column prop="type" label="路由目的地的子网掩码"></el-table-column>
-      <el-table-column prop="type" label="路由协议"></el-table-column>
-      <el-table-column prop="type" label="目的地址"></el-table-column>
-      <el-table-column prop="type" label="下一跳路由器地址"></el-table-column>
+      <el-table-column prop="id" label="序号" width="100"></el-table-column>
+      <el-table-column prop="name" label="内存硬盘盘符" width="100"></el-table-column>
+      <el-table-column prop="type" label="内存硬盘类型"></el-table-column>
+      <el-table-column prop="type" label="已使用容量"></el-table-column>
+      <el-table-column prop="type" label="内存硬盘已使用块数"></el-table-column>
+      <el-table-column prop="type" label="内存硬盘数量"></el-table-column>
+      <el-table-column prop="type" label="存储容量"></el-table-column>
+      <el-table-column prop="type" label="使用率"></el-table-column>
+      <el-table-column prop="type" label="内存硬盘块容量"></el-table-column>
+      <el-table-column prop="type" label="内存硬盘分配失败的块数"></el-table-column>
+      <el-table-column prop="type" label="内存硬盘块编号"></el-table-column>
     </el-table>
   </div>
 </template>
+
 <script>
 export default {
-  name: "RouteList",
+  name: "StorageList",
   components: {},
   props: {},
   data() {
@@ -50,6 +55,7 @@ export default {
   }
 };
 </script>
+
 <style lang="less" scoped>
 .input-content {
   line-height: 40px;

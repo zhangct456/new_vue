@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-row>
+    <el-row class="input-content">
       <el-col :sm="{span: 20, offset: 2}" :lg="{span: 4, offset: 19}">
         <el-input v-model="keyword" placeholder="搜索..."></el-input>
       </el-col>
@@ -49,6 +49,9 @@ export default {
 </script>
 
 <style lang="less" scoped>
+.input-content {
+  line-height: 40px;
+}
 .table {
   margin-top: 12px;
 }

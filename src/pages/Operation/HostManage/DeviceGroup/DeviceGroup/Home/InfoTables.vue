@@ -19,13 +19,27 @@
       <el-tab-pane label="用户表" name="user-list">
         <UserList></UserList>
       </el-tab-pane>
-      <el-tab-pane label="接口表" name="interface-list"></el-tab-pane>
-      <el-tab-pane label="存储表" name="storage-list"></el-tab-pane>
-      <el-tab-pane label="UDP" name="udp-list"></el-tab-pane>
-      <el-tab-pane label="TCP" name="tcp-list"></el-tab-pane>
-      <el-tab-pane label="IP地址表" name="ip-list"></el-tab-pane>
-      <el-tab-pane label="CPU" name="cpu-list"></el-tab-pane>
-      <el-tab-pane label="ARP表" name="arp-list"></el-tab-pane>
+      <el-tab-pane label="接口表" name="interface-list">
+        <InterfaceList></InterfaceList>
+      </el-tab-pane>
+      <el-tab-pane label="存储表" name="storage-list">
+        <StorageList></StorageList>
+      </el-tab-pane>
+      <el-tab-pane label="UDP" name="udp-list">
+        <UdpList></UdpList>
+      </el-tab-pane>
+      <el-tab-pane label="TCP" name="tcp-list">
+        <TcpList></TcpList>
+      </el-tab-pane>
+      <el-tab-pane label="IP地址表" name="ip-list">
+        <IpList></IpList>
+      </el-tab-pane>
+      <el-tab-pane label="CPU" name="cpu-list">
+        <CpuList></CpuList>
+      </el-tab-pane>
+      <el-tab-pane label="ARP表" name="arp-list">
+        <ArpList></ArpList>
+      </el-tab-pane>
     </el-tabs>
   </div>
 </template>
@@ -36,6 +50,13 @@ import SoftwareList from "./InfoTables/SoftwareList";
 import RouteList from "./InfoTables/RouteList";
 import HardwareInfo from "./InfoTables/HardwareInfo";
 import UserList from "./InfoTables/UserList";
+import InterfaceList from "./InfoTables/InterfaceList";
+import StorageList from "./InfoTables/StorageList";
+import UdpList from "./InfoTables/UdpList";
+import TcpList from "./InfoTables/TcpList";
+import IpList from "./InfoTables/IpList";
+import CpuList from "./InfoTables/CpuList";
+import ArpList from "./InfoTables/ArpList";
 
 export default {
   name: "InfoTables",
@@ -45,7 +66,14 @@ export default {
     SoftwareList,
     RouteList,
     HardwareInfo,
-    UserList
+    UserList,
+    InterfaceList,
+    StorageList,
+    UdpList,
+    TcpList,
+    IpList,
+    CpuList,
+    ArpList
   },
   props: {},
   data() {
