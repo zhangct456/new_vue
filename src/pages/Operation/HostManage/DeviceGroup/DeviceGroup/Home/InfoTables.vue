@@ -4,18 +4,27 @@
       <el-tab-pane label="流量图" name="flow-chart">
         <FlowChart></FlowChart>
       </el-tab-pane>
-      <el-tab-pane label="进程表" name="process-table">进程表</el-tab-pane>
-      <el-tab-pane label="日志信息" name="loginfo">日志信息</el-tab-pane>
-      <el-tab-pane label="事件" name="event">事件</el-tab-pane>
+      <el-tab-pane label="进程表" name="process-table">
+        <ProcessTable></ProcessTable>
+      </el-tab-pane>
+      <el-tab-pane label="软件安装列表" name="software-list">
+        <SoftwareList></SoftwareList>
+      </el-tab-pane>
+      <el-tab-pane label="路由表" name="route-list">
+        <RouteList></RouteList>
+      </el-tab-pane>
     </el-tabs>
   </div>
 </template>
 <script>
 import FlowChart from "./InfoTables/FlowChart";
+import ProcessTable from "./InfoTables/ProcessTable";
+import SoftwareList from "./InfoTables/SoftwareList";
+import RouteList from "./InfoTables/RouteList";
 
 export default {
   name: "InfoTables",
-  components: { FlowChart },
+  components: { FlowChart, ProcessTable, SoftwareList, RouteList },
   props: {},
   data() {
     return {

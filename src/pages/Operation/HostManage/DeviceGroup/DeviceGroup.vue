@@ -172,7 +172,7 @@ export default {
         children: "children",
         label: "label"
       },
-      menuOnMobile: true
+      menuOnMobile: false
     };
   },
   computed: {

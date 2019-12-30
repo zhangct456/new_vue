@@ -54,6 +54,17 @@ body,
     }
   }
 }
+// 覆盖element样式
+.el-input .el-input__inner {
+  background-color: #153c66;
+  color: white;
+}
+.el-table__empty-block {
+  background-color: #153c66;
+  .el-table__empty-text {
+    color: white;
+  }
+}
 ::-webkit-scrollbar {
   /*滚动条整体样式*/
   width: 5px; /*高宽分别对应横竖滚动条的尺寸*/

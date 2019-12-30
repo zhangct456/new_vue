@@ -8,7 +8,7 @@ import router from './router'
 
 Vue.config.productionTip = false
 
-Vue.use(ElementUI);
+Vue.use(ElementUI, { size: 'small' });
 
 new Vue({
   el: '#app',
