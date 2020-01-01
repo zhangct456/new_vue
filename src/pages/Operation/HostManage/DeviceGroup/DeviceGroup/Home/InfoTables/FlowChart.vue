@@ -53,6 +53,7 @@ export default {
 .flow-chart {
   padding: 0 24px;
   padding-bottom: 24px;
+  color: white;
   .select {
     width: 50%;
   }

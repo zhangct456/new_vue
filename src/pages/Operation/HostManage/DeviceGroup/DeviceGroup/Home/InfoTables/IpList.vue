@@ -65,6 +65,7 @@ export default {
 <style lang="less" scoped>
 .input-content {
   line-height: 40px;
+  color: white;
   .label {
     text-align: right;
     white-space: nowrap;

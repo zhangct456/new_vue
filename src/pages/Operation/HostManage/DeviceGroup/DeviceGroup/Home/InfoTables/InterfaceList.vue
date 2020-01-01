@@ -27,7 +27,7 @@
       class="table"
       :data="tableData"
       :highlight-current-row="false"
-      :header-cell-style="{ backgroundColor: '#2e7ead', color: '#999' }"
+      :header-cell-style="{ backgroundColor: '#2e7ead', color: '#fff' }"
       :row-style="rowStyle"
       :cell-style="{color: '#999'}"
       style="width: 100%"
@@ -84,6 +84,7 @@ export default {
 <style lang="less" scoped>
 .input-content {
   line-height: 40px;
+  color: white;
   .label {
     white-space: nowrap;
     padding-left: 10px;

@@ -46,6 +46,7 @@ export default {
   max-height: 250px;
   padding: 24px;
   overflow-y: auto;
+  color: white;
 }
 .host-describe.is-mobile {
   max-height: none;

@@ -65,7 +65,12 @@ body,
     color: white;
   }
 }
-
+.el-table .el-table__body .el-table__row:hover {
+  background-color: #007bff !important;
+}
+.el-table--enable-row-hover .el-table__body tr:hover > td {
+  background-color: #007bff !important;
+}
 ::-webkit-scrollbar {
   /*滚动条整体样式*/
   width: 5px; /*高宽分别对应横竖滚动条的尺寸*/

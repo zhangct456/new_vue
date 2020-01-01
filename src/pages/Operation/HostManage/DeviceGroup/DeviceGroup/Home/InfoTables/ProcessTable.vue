@@ -91,6 +91,7 @@ export default {
 <style lang="less" scoped>
 .input-content {
   line-height: 40px;
+  color: white;
   .label {
     white-space: nowrap;
     padding-left: 10px;

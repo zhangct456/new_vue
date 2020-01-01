@@ -39,7 +39,9 @@
         <el-tab-pane label="配置" name="config">
           <Config></Config>
         </el-tab-pane>
-        <el-tab-pane label="服务列表" name="server">服务列表</el-tab-pane>
+        <el-tab-pane label="服务列表" name="server">
+          <ServerList></ServerList>
+        </el-tab-pane>
         <el-tab-pane label="日志信息" name="loginfo">日志信息</el-tab-pane>
         <el-tab-pane label="事件" name="event">事件</el-tab-pane>
       </el-tabs>
@@ -49,12 +51,13 @@
 <script>
 import Home from "./DeviceGroup/Home";
 import Config from "./DeviceGroup/Config";
+import ServerList from "./DeviceGroup/ServerList";
 
 import { domIsChild } from "@/utils";
 
 export default {
   name: "DeviceGroup",
-  components: { Home, Config },
+  components: { Home, Config, ServerList },
   props: {},
   inject: ["screenType"],
   data() {

@@ -40,5 +40,6 @@ export default {
 <style lang="less" scoped>
 .assets-info {
   padding: 24px;
+  color: white;
 }
 </style>
