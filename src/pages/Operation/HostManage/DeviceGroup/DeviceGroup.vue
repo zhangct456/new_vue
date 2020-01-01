@@ -42,8 +42,12 @@
         <el-tab-pane label="服务列表" name="server">
           <ServerList></ServerList>
         </el-tab-pane>
-        <el-tab-pane label="日志信息" name="loginfo">日志信息</el-tab-pane>
-        <el-tab-pane label="事件" name="event">事件</el-tab-pane>
+        <el-tab-pane label="日志信息" name="loginfo">
+          <LogsInfo></LogsInfo>
+        </el-tab-pane>
+        <el-tab-pane label="事件" name="event">
+          <EventList></EventList>
+        </el-tab-pane>
       </el-tabs>
     </div>
   </div>
@@ -52,12 +56,14 @@
 import Home from "./DeviceGroup/Home";
 import Config from "./DeviceGroup/Config";
 import ServerList from "./DeviceGroup/ServerList";
+import LogsInfo from "./DeviceGroup/LogsInfo";
+import EventList from "./DeviceGroup/EventList";
 
 import { domIsChild } from "@/utils";
 
 export default {
   name: "DeviceGroup",
-  components: { Home, Config, ServerList },
+  components: { Home, Config, ServerList, LogsInfo, EventList },
   props: {},
   inject: ["screenType"],
   data() {
