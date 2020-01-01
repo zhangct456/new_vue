@@ -5,16 +5,18 @@
     <div class="content">
       <router-view />
     </div>
+    <Bottom></Bottom>
   </div>
 </template>
 
 <script>
 import Header from "./Header.vue";
 import Aside from "./Aside.vue";
+import Bottom from "./Bottom";
 
 export default {
   name: "Base",
-  components: { Header, Aside },
+  components: { Header, Aside, Bottom },
   provide() {
     return { BaseLayout: this };
   },
@@ -40,7 +42,7 @@ export default {
 .base-box {
   width: 100%;
   height: 100%;
-  padding: 80px 0 0 200px;
+  padding: 80px 0 25px 200px;
   background-color: #153c66;
 }
 .base-box-mobile {
@@ -48,6 +50,7 @@ export default {
   height: 100%;
   padding: 0;
   padding-top: 40px;
+  padding-bottom: 25px;
   background-color: #153c66;
 }
 .content {
