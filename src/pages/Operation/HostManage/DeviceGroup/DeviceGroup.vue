@@ -36,7 +36,9 @@
         <el-tab-pane label="主页" name="home">
           <Home></Home>
         </el-tab-pane>
-        <el-tab-pane label="配置" name="config">配置</el-tab-pane>
+        <el-tab-pane label="配置" name="config">
+          <Config></Config>
+        </el-tab-pane>
         <el-tab-pane label="服务列表" name="server">服务列表</el-tab-pane>
         <el-tab-pane label="日志信息" name="loginfo">日志信息</el-tab-pane>
         <el-tab-pane label="事件" name="event">事件</el-tab-pane>
@@ -46,12 +48,13 @@
 </template>
 <script>
 import Home from "./DeviceGroup/Home";
+import Config from "./DeviceGroup/Config";
 
 import { domIsChild } from "@/utils";
 
 export default {
   name: "DeviceGroup",
-  components: { Home },
+  components: { Home, Config },
   props: {},
   inject: ["screenType"],
   data() {
@@ -209,7 +212,6 @@ export default {
       const ele = e.srcElement;
       const menuOpenButton = this.$refs.menuOpenButton;
       const menuBox = this.$refs.menuBox;
-      console.log("a");
       if (!domIsChild(ele, menuOpenButton) && !domIsChild(ele, menuBox)) {
         this.menuOnMobile = false;
       }

@@ -24,7 +24,7 @@ export default {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: white;
+  // color: white;
 }
 html,
 body,
@@ -65,6 +65,7 @@ body,
     color: white;
   }
 }
+
 ::-webkit-scrollbar {
   /*滚动条整体样式*/
   width: 5px; /*高宽分别对应横竖滚动条的尺寸*/
