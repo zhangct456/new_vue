@@ -1,7 +1,7 @@
 <template>
   <div class="mobile-header">
     <div class="logo-box">
-      <img class="logo" src="@/assets/logo.jpg" />
+      <img class="logo" :src="$baseConfig.logoPath" />
     </div>
     <div @click="BaseLayout.showAside = !BaseLayout.showAside">
       <i class="aside-ctrl el-icon-s-unfold"></i>
