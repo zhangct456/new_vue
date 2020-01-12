@@ -1,5 +1,5 @@
 <template>
-  <div class="base-box" :class="{'base-box-mobile': isMobile}">
+  <div class="base-box" :class="{'base-box-mobile': isMobile, 'computer-show-aside': showAside}">
     <Header></Header>
     <Aside></Aside>
     <div class="content">
@@ -24,7 +24,7 @@ export default {
   props: {},
   data() {
     return {
-      showAside: false
+      showAside: true
     };
   },
   computed: {
@@ -35,15 +35,25 @@ export default {
   watch: {},
   methods: {},
   created() {},
-  mounted() {}
+  mounted() {
+    if (this.screenType === "mobile") {
+      this.showAside = false;
+    } else {
+      this.showAside = true;
+    }
+  }
 };
 </script>
 <style lang="less" scoped>
 .base-box {
   width: 100%;
   height: 100%;
-  padding: 80px 0 25px 200px;
+  padding: 80px 0 25px 0px;
   background-color: #153c66;
+  transition: 0.5s all ease;
+}
+.computer-show-aside {
+  padding-left: 200px;
 }
 .base-box-mobile {
   width: 100%;

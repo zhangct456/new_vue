@@ -1,27 +1,21 @@
 <template>
-  <div :class="{'aside-box-mobile': isMobile, 'aside-box-computer': !isMobile}">
-    <AsideMenu v-if="!isMobile"></AsideMenu>
-    <el-drawer
-      v-if="isMobile"
-      title="标题"
-      :visible.sync="BaseLayout.showAside"
-      :with-header="false"
-      custom-class="aside-drawer"
-      direction="ltr"
-    >
-      <div class="float-aside">
-        <AsideMenu></AsideMenu>
-      </div>
-    </el-drawer>
+  <div>
+    <AsideComputer
+      v-if="screenType === 'computer'"
+      :menu-list="menuList"
+      :current-menu="currentMenu"
+    ></AsideComputer>
+    <AsideMobile v-if="screenType === 'mobile'" :menu-list="menuList" :current-menu="currentMenu"></AsideMobile>
   </div>
 </template>
 
 <script>
-import AsideMenu from "./AsideMenu";
+import AsideComputer from "./Aside/AsideComputer";
+import AsideMobile from "./Aside/AsideMobile";
 
 export default {
   name: "Aside",
-  components: { AsideMenu },
+  components: { AsideComputer, AsideMobile },
   props: {},
   inject: ["screenType", "BaseLayout"],
   data() {
@@ -69,7 +63,6 @@ export default {
   top: 80px;
   bottom: 0;
   left: 0;
-  width: 200px;
 }
 .float-aside {
   height: 100%;
