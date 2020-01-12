@@ -10,7 +10,17 @@ export default {
   components: {},
   provide() {
     const screenWidth = document.body.clientWidth;
-    return { screenType: screenWidth > 1000 ? "computer" : "mobile" };
+    let screenType = "computer";
+    if (screenWidth > 1280) {
+      screenType = "computer";
+    } else if (screenWidth > 1000) {
+      screenType = "mobile";
+    } else {
+      screenType = "mobile";
+    }
+    return {
+      screenType: screenType
+    };
   },
   mounted() {
     window.console.log(document.body.clientWidth);
