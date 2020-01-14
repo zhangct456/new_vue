@@ -35,7 +35,7 @@
 
 <script>
 export default {
-  name: "HeaderMobile",
+  name: "HeaderMobileBusiness",
   components: {},
   props: {
     menuList: {
@@ -49,7 +49,7 @@ export default {
   data() {
     return {
       openMenuFlag: false,
-      currentStyle: "classic"
+      currentStyle: "business"
     };
   },
   computed: {

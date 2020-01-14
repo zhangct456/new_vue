@@ -24,7 +24,8 @@ export default {
   props: {},
   data() {
     return {
-      showAside: true
+      showAside: true,
+      styleType: "business"
     };
   },
   computed: {

@@ -1,22 +1,46 @@
 <template>
-  <div class="header" :class="headerClass">
+  <div class="header">
     <HeaderComputer
-      v-if="screenType === 'computer'"
+      v-if="screenType === 'computer' && BaseLayout.styleType === 'classic'"
       :menuList="menuList"
       :active-id="currentMenu"
       @change="choiceMenu"
     ></HeaderComputer>
-    <HeaderMobile v-if="screenType === 'mobile'" :menuList="menuList" :active-id="currentMenu"></HeaderMobile>
+    <HeaderComputerBusiness
+      v-if="screenType === 'computer' && BaseLayout.styleType === 'business'"
+      :menuList="menuList"
+      :active-id="currentMenu"
+      @change="choiceMenu"
+    ></HeaderComputerBusiness>
+    <HeaderMobile
+      v-if="screenType === 'mobile' && BaseLayout.styleType === 'classic'"
+      :menuList="menuList"
+      :active-id="currentMenu"
+      @change="choiceMenu"
+    ></HeaderMobile>
+    <HeaderMobileBusiness
+      v-if="screenType === 'mobile' && BaseLayout.styleType === 'business'"
+      :menuList="menuList"
+      :active-id="currentMenu"
+      @change="choiceMenu"
+    ></HeaderMobileBusiness>
   </div>
 </template>
 
 <script>
 import HeaderComputer from "./Header/HeaderComputer";
+import HeaderComputerBusiness from "./Header/HeaderComputerBusiness";
 import HeaderMobile from "./Header/HeaderMobile";
+import HeaderMobileBusiness from "./Header/HeaderMobileBusiness";
 
 export default {
   name: "Header",
-  components: { HeaderComputer, HeaderMobile },
+  components: {
+    HeaderComputer,
+    HeaderComputerBusiness,
+    HeaderMobile,
+    HeaderMobileBusiness
+  },
   props: {},
   inject: ["screenType", "BaseLayout"],
   data() {
@@ -38,11 +62,7 @@ export default {
       ]
     };
   },
-  computed: {
-    headerClass() {
-      return this.screenType === "mobile" ? "mobile-header" : "computer-header";
-    }
-  },
+  computed: {},
   created() {},
   mounted() {},
   watch: {},
@@ -55,22 +75,4 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.header {
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  width: 100%;
-  z-index: 2;
-  background-color: #15355b;
-}
-.header.computer-header {
-  height: 80px;
-  line-height: 80px;
-  padding: 0 40px;
-}
-.header.mobile-header {
-  height: 40px;
-  line-height: 40px;
-}
 </style>

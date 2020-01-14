@@ -1,7 +1,7 @@
 <template>
   <div class="computer-header">
     <div class="logo-box">
-      <img class="logo" src="@/assets/logo.jpg" />
+      <img class="logo" :src="$baseConfig.logoPath" />
     </div>
     <div class="aside-ctrl-box">
       <i class="aside-ctrl el-icon-s-unfold" @click="BaseLayout.showAside = !BaseLayout.showAside"></i>
@@ -35,10 +35,10 @@
       </ul>
     </div>
     <div class="style-change">
-      <el-select v-model="currentStyle">
-        <el-option value="经典">经典</el-option>
-        <el-option value="商务">商务</el-option>
-        <el-option value="简约">简约</el-option>
+      <el-select v-model="currentStyle" @change="changeStyle">
+        <el-option label="经典" value="classic">经典</el-option>
+        <el-option label="商务" value="business">商务</el-option>
+        <el-option label="简约" value="simplicity">简约</el-option>
       </el-select>
     </div>
     <ul class="right-ctrl">
@@ -57,6 +57,7 @@
 
 <script>
 export default {
+  name: "HeaderComputer",
   components: {},
   props: {
     menuList: {
@@ -70,7 +71,7 @@ export default {
   data() {
     return {
       openMenuFlag: false,
-      currentStyle: "经典"
+      currentStyle: "classic"
     };
   },
   computed: {
@@ -89,6 +90,10 @@ export default {
   methods: {
     choiceMenu(menu) {
       this.$emit("change", menu);
+    },
+
+    changeStyle() {
+      this.BaseLayout.styleType = this.currentStyle;
     }
   }
 };
@@ -96,8 +101,16 @@ export default {
 
 <style lang="less" scoped>
 .computer-header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+  background-color: #15355b;
   height: 80px;
   line-height: 80px;
+  padding: 0 40px;
   display: flex;
   .logo-box {
     flex: 2;
@@ -167,7 +180,7 @@ export default {
   }
   .style-change {
     width: 100px;
-    padding-right: 20px; 
+    padding-right: 20px;
   }
   .right-ctrl {
     flex: 1;
