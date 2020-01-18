@@ -1,21 +1,46 @@
 <template>
   <div>
     <AsideComputer
-      v-if="screenType === 'computer'"
+      v-if="screenType === 'computer' && BaseLayout.styleType === 'classic'"
       :menu-list="menuList"
       :current-menu="currentMenu"
+      @choiceMenu="choiceMenu"
     ></AsideComputer>
-    <AsideMobile v-if="screenType === 'mobile'" :menu-list="menuList" :current-menu="currentMenu"></AsideMobile>
+    <AsideComputerBusiness
+      v-if="screenType === 'computer' && BaseLayout.styleType === 'business'"
+      :menu-list="menuList"
+      :current-menu="currentMenu"
+      @choiceMenu="choiceMenu"
+    ></AsideComputerBusiness>
+    <AsideMobile
+      v-if="screenType === 'mobile' && BaseLayout.styleType === 'classic'"
+      :menu-list="menuList"
+      :current-menu="currentMenu"
+      @choiceMenu="choiceMenu"
+    ></AsideMobile>
+    <AsideMobileBusiness
+      v-if="screenType === 'mobile' && BaseLayout.styleType === 'business'"
+      :menu-list="menuList"
+      :current-menu="currentMenu"
+      @choiceMenu="choiceMenu"
+    ></AsideMobileBusiness>
   </div>
 </template>
 
 <script>
 import AsideComputer from "./Aside/AsideComputer";
+import AsideComputerBusiness from "./Aside/AsideComputerBusiness";
 import AsideMobile from "./Aside/AsideMobile";
+import AsideMobileBusiness from "./Aside/AsideMobileBusiness";
 
 export default {
   name: "Aside",
-  components: { AsideComputer, AsideMobile },
+  components: {
+    AsideComputer,
+    AsideComputerBusiness,
+    AsideMobile,
+    AsideMobileBusiness
+  },
   props: {},
   inject: ["screenType", "BaseLayout"],
   data() {
@@ -26,7 +51,7 @@ export default {
           title: "主机管理",
           path: "",
           children: [
-            { title: "设备组", path: "" },
+            { title: "设备组", path: "operation/host-manage/device-group" },
             { title: "设备", path: "" },
             { title: "授权", path: "" }
           ]
@@ -48,29 +73,15 @@ export default {
       return this.screenType === "mobile";
     }
   },
-  watch: {},
-  methods: {},
   created() {},
-  mounted() {
-    window.console.log("aside");
+  mounted() {},
+  methods: {
+    choiceMenu(data) {
+      this.currentMenu = data;
+    }
   }
 };
 </script>
 
 <style lang="less" scoped>
-.aside-box-computer {
-  position: fixed;
-  top: 80px;
-  bottom: 0;
-  left: 0;
-}
-.float-aside {
-  height: 100%;
-  width: 200px;
-}
-</style>
-<style>
-.aside-drawer {
-  width: 200px !important;
-}
 </style>

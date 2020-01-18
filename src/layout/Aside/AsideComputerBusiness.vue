@@ -1,17 +1,6 @@
 <template>
-  <div class="aside-box-mobile">
-    <el-drawer
-      v-if="isMobile"
-      title="标题"
-      :visible.sync="BaseLayout.showAside"
-      :with-header="false"
-      custom-class="aside-drawer"
-      direction="ltr"
-    >
-      <div class="float-aside">
-        <AsideMenu :menu-list="menuList" :current-menu="currentMenu" @choiceMenu="choiceMenu"></AsideMenu>
-      </div>
-    </el-drawer>
+  <div class="aside-box-computer" :class="{'display-aside': BaseLayout.showAside}">
+    <AsideMenu :menu-list="menuList" :current-menu="currentMenu" @choiceMenu="choiceMenu"></AsideMenu>
   </div>
 </template>
 
@@ -19,7 +8,7 @@
 import AsideMenu from "./AsideMenu";
 
 export default {
-  name: "AsideMobile",
+  name: "AsideComputerBusiness",
   components: { AsideMenu },
   props: {
     menuList: {
@@ -49,14 +38,17 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.float-aside {
-  height: 100%;
-  width: 200px;
-  background-color: #133a63;
+.aside-box-computer {
+  position: fixed;
+  top: 0px;
+  bottom: 0;
+  left: 60px;
+  width: 0px;
+  transition: 0.5s all ease;
+  z-index: 2;
 }
-</style>
-<style>
-.aside-drawer {
-  width: 200px !important;
+.display-aside {
+  width: 200px;
+  background-color: #2c333f;
 }
 </style>

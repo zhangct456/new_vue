@@ -1,6 +1,6 @@
 <template>
   <div class="aside-box-computer" :class="{'display-aside': BaseLayout.showAside}">
-    <AsideMenu :menu-list="menuList" :current-menu="currentMenu"></AsideMenu>
+    <AsideMenu :menu-list="menuList" :current-menu="currentMenu" @choiceMenu="choiceMenu"></AsideMenu>
   </div>
 </template>
 
@@ -27,10 +27,13 @@ export default {
       return this.screenType === "mobile";
     }
   },
-  watch: {},
-  methods: {},
   created() {},
-  mounted() {}
+  mounted() {},
+  methods: {
+    choiceMenu(data) {
+      this.$emit("choiceMenu", data);
+    }
+  }
 };
 </script>
 
@@ -45,5 +48,6 @@ export default {
 }
 .display-aside {
   width: 200px;
+  background-color: #133a63;
 }
 </style>

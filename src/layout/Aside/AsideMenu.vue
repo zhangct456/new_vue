@@ -48,7 +48,7 @@ export default {
   computed: {},
   methods: {
     choiceMenu(i, j) {
-      this.currentMenu = [i, j];
+      this.$emit("choiceMenu", [i, j]);
       if (i !== -1 && j !== -1) {
         if (this.menuList[i].children[j].path) {
           this.$router.push({ path: this.menuList[i].children[j].path });
@@ -68,7 +68,6 @@ export default {
 .aside {
   width: 100%;
   height: 100%;
-  background-color: #133a63;
   .menu {
     list-style: none;
     color: white;

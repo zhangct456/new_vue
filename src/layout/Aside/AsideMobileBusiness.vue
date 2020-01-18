@@ -52,7 +52,6 @@ export default {
 .float-aside {
   height: 100%;
   width: 200px;
-  background-color: #133a63;
 }
 </style>
 <style>
