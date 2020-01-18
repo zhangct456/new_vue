@@ -3,8 +3,8 @@
     <div class="logo-box">
       <img class="logo" :src="$baseConfig.logoPath" />
     </div>
-    <div @click="BaseLayout.showAside = !BaseLayout.showAside">
-      <i class="aside-ctrl el-icon-s-unfold"></i>
+    <div class="aside-ctrl" @click="BaseLayout.showAside = !BaseLayout.showAside">
+      <i class="el-icon-s-unfold"></i>
     </div>
     <div class="current-menu" @click="openMenuFlag=true">
       {{currentMenu}}
@@ -24,11 +24,11 @@
       </ul>
     </div>
     <div class="style-change">
-      <el-select v-model="currentStyle" @change="changeStyle">
-        <el-option label="经典" value="classic">经典</el-option>
-        <el-option label="商务" value="business">商务</el-option>
-        <el-option label="简约" value="simplicity">简约</el-option>
-      </el-select>
+      <select v-model="currentStyle" @change="changeStyle">
+        <option label="经典" value="classic">经典</option>
+        <option label="商务" value="business">商务</option>
+        <option label="简约" value="simplicity">简约</option>
+      </select>
     </div>
   </div>
 </template>
@@ -103,6 +103,9 @@ export default {
     font-size: 20px;
     padding: 0 12px;
     color: #05c6d6;
+    i {
+      vertical-align: middle;
+    }
   }
   .current-menu {
     flex: 3;
@@ -134,6 +137,17 @@ export default {
   .style-change {
     width: 100px;
     padding-right: 20px;
+    text-align: right;
+    select {
+      width: 50px;
+      height: 25px;
+      line-height: 30px;
+      background: none;
+      color: white;
+      option {
+        color: black;
+      }
+    }
   }
   .right-ctrl {
     flex: 1;

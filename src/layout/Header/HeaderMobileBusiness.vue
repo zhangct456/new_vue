@@ -3,8 +3,8 @@
     <div class="logo-box">
       <img class="logo" :src="$baseConfig.logoPath" />
     </div>
-    <div @click="BaseLayout.showAside = !BaseLayout.showAside">
-      <i class="aside-ctrl el-icon-s-unfold"></i>
+    <div class="aside-ctrl" @click="BaseLayout.showAside = !BaseLayout.showAside">
+      <i class="el-icon-s-unfold"></i>
     </div>
     <div class="current-menu" @click="openMenuFlag=true">
       {{currentMenu}}
@@ -24,11 +24,11 @@
       </ul>
     </div>
     <div class="style-change">
-      <el-select v-model="currentStyle" @change="changeStyle">
-        <el-option label="经典" value="classic">经典</el-option>
-        <el-option label="商务" value="business">商务</el-option>
-        <el-option label="简约" value="simplicity">简约</el-option>
-      </el-select>
+      <select v-model="currentStyle" @change="changeStyle">
+        <option label="经典" value="classic">经典</option>
+        <option label="商务" value="business">商务</option>
+        <option label="简约" value="simplicity">简约</option>
+      </select>
     </div>
   </div>
 </template>
@@ -85,7 +85,7 @@ export default {
   left: 0;
   width: 100%;
   z-index: 2;
-  background-color: #15355b;
+  background-color: #354050;
   height: 40px;
   line-height: 40px;
   display: flex;
@@ -102,12 +102,15 @@ export default {
   .aside-ctrl {
     font-size: 20px;
     padding: 0 12px;
-    color: #05c6d6;
+    color: white;
+    i {
+      vertical-align: middle;
+    }
   }
   .current-menu {
     flex: 3;
     padding-right: 20px;
-    color: #05c6d6;
+    color: white;
     text-align: center;
   }
   .menu-box {
@@ -122,18 +125,29 @@ export default {
       width: 100%;
       max-height: 300px;
       overflow-y: auto;
-      background-color: #15355b;
-      border-top: 1px solid #064ea4;
+      background-color: #354050;
+      border-top: 1px solid white;
       li {
         padding: 0 24px;
-        color: #05c6d6;
-        border-top: 1px solid #064ea4;
+        color: white;
+        border-top: 1px solid #eeeeee;
       }
     }
   }
   .style-change {
     width: 100px;
     padding-right: 20px;
+    text-align: right;
+    select {
+      width: 50px;
+      height: 25px;
+      line-height: 30px;
+      background: none;
+      color: white;
+      option {
+        color: black;
+      }
+    }
   }
   .right-ctrl {
     flex: 1;
