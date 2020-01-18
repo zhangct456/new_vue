@@ -1,5 +1,5 @@
 <template>
-  <div class="bottom">当前用户：主机超级管理员</div>
+  <div class="bottom" :class="BaseLayout.styleType">当前用户：主机超级管理员</div>
 </template>
 
 <script>
@@ -7,6 +7,7 @@ export default {
   name: "Bottom",
   components: {},
   props: {},
+  inject: ["BaseLayout"],
   data() {
     return {};
   },
@@ -30,5 +31,9 @@ export default {
   padding: 0 24px;
   color: white;
   background-color: #193c64;
+  z-index: 3;
+}
+.bottom.business {
+  background-color: #2c333f;
 }
 </style>

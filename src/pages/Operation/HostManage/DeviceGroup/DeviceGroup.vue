@@ -265,11 +265,13 @@ export default {
     bottom: 0;
     left: 0;
     width: 0px;
+    min-width: 0px;
     background-color: #153c66;
     overflow-y: auto;
     transition: 0.5s all ease;
   }
   .device-menu.open-menu {
+    min-width: 200px;
     width: 200px;
   }
   .device-content {
