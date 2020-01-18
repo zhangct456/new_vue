@@ -51,7 +51,7 @@ export default {
           title: "主机管理",
           path: "",
           children: [
-            { title: "设备组", path: "operation/host-manage/device-group" },
+            { title: "设备组", path: "/operation/host-manage/device-group" },
             { title: "设备", path: "" },
             { title: "授权", path: "" }
           ]

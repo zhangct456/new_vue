@@ -25,7 +25,7 @@ export default {
   data() {
     return {
       showAside: true,
-      styleType: "business" // classic: 经典; business: 商务; simplicity: 简约;
+      styleType: "classic" // classic: 经典; business: 商务; simplicity: 简约;
     };
   },
   computed: {

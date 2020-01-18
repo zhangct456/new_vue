@@ -1,5 +1,5 @@
 <template>
-  <div class="aside">
+  <div class="aside" :class="BaseLayout.styleType">
     <ul class="menu">
       <li
         class="menu-li"
@@ -144,6 +144,39 @@ export default {
         span {
           border-bottom: none;
         }
+      }
+    }
+  }
+}
+.aside.business {
+  .menu {
+    .menu-li {
+      .menu-title {
+        span {
+          border-bottom: none;
+        }
+      }
+      .menu-title:hover {
+        background-color: #252525;
+      }
+      .submenu {
+        background-color: #4a4d51;
+        .submenu-li {
+          span {
+            border-bottom: none;
+          }
+        }
+        .submenu-li:hover {
+          background-color: #252525;
+        }
+        .submenu-li-active {
+          background-color: #252525;
+        }
+      }
+    }
+    .menu-li-active {
+      .menu-title {
+        background-color: #252525;
       }
     }
   }

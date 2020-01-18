@@ -233,6 +233,7 @@ export default {
   display: flex;
   min-height: 100%;
   .device-menu {
+    min-width: 200px;
     width: 200px;
     border: 1px solid #0490d0;
   }
