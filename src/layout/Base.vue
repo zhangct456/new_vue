@@ -90,3 +90,5 @@ export default {
   padding-left: 260px;
 }
 </style>
+<style lang="less">
+</style>

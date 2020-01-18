@@ -88,14 +88,12 @@ body,
   height: 1px;
 }
 ::-webkit-scrollbar-thumb {
-  /*滚动条里面小方块*/
   border-radius: 10px;
-  -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
-  background: #0490d0;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  background: #999999;
 }
 ::-webkit-scrollbar-track {
-  /*滚动条里面轨道*/
-  -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   background: #ededed;
 }
