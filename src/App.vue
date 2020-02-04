@@ -14,7 +14,7 @@ export default {
     if (screenWidth > 1280) {
       screenType = "computer";
     } else if (screenWidth > 1000) {
-      screenType = "mobile";
+      screenType = "ipad";
     } else {
       screenType = "mobile";
     }
@@ -42,34 +42,7 @@ body,
   width: 100%;
   height: 100%;
 }
-// 内容行样式
-.info-modular-row {
-  display: block;
-}
-.info-modular-row-flex {
-  display: flex;
-}
-.info-modular-box {
-  padding: 5px;
-  .info-modular {
-    height: 100%;
-    border-radius: 5px;
-    border: 1px solid #2e6fa7;
-    overflow: hidden;
-    .title {
-      color: white;
-      font-size: 12px;
-      line-height: 30px;
-      padding: 0 24px;
-      background-color: #2e6fa7;
-    }
-  }
-}
 // 覆盖element样式
-.el-input .el-input__inner {
-  background-color: #153c66;
-  color: white;
-}
 .el-table__empty-block {
   background-color: #153c66;
   .el-table__empty-text {

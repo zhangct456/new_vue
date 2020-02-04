@@ -181,4 +181,37 @@ export default {
     }
   }
 }
+.aside.simplicity {
+  .menu {
+    .menu-li {
+      .menu-title {
+        span {
+          border-bottom: none;
+        }
+      }
+      .menu-title:hover {
+        background-color: #1a3d5d;
+      }
+      .submenu {
+        background-color: #345676;
+        .submenu-li {
+          span {
+            border-bottom: none;
+          }
+        }
+        .submenu-li:hover {
+          background-color: #1a3d5d;
+        }
+        .submenu-li-active {
+          background-color: #1a3d5d;
+        }
+      }
+    }
+    .menu-li-active {
+      .menu-title {
+        background-color: #1a3d5d;
+      }
+    }
+  }
+}
 </style>

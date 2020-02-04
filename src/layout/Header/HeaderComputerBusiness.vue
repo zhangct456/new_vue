@@ -1,7 +1,7 @@
 <template>
   <div class="computer-header">
     <div class="logo-box">
-      <img class="logo" :src="$baseConfig.logoPath" />
+      <img class="logo" :src="$baseConfig.style.business.logo" />
     </div>
     <div class="aside-ctrl-box">
       <i class="aside-ctrl el-icon-s-unfold" @click="BaseLayout.showAside = !BaseLayout.showAside"></i>

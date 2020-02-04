@@ -12,6 +12,12 @@
       :active-id="currentMenu"
       @change="choiceMenu"
     ></HeaderComputerBusiness>
+    <HeaderComputerSimplicity
+      v-if="screenType === 'computer' && BaseLayout.styleType === 'simplicity'"
+      :menuList="menuList"
+      :active-id="currentMenu"
+      @change="choiceMenu"
+    ></HeaderComputerSimplicity>
     <HeaderMobile
       v-if="screenType === 'mobile' && BaseLayout.styleType === 'classic'"
       :menuList="menuList"
@@ -24,42 +30,51 @@
       :active-id="currentMenu"
       @change="choiceMenu"
     ></HeaderMobileBusiness>
+    <HeaderMobileSimplicity
+      v-if="screenType === 'mobile' && BaseLayout.styleType === 'simplicity'"
+      :menuList="menuList"
+      :active-id="currentMenu"
+      @change="choiceMenu"
+    ></HeaderMobileSimplicity>
+    <HeaderIpad
+      v-if="screenType === 'ipad'"
+      :menuList="menuList"
+      :active-id="currentMenu"
+      @change="choiceMenu"
+    ></HeaderIpad>
   </div>
 </template>
 
 <script>
 import HeaderComputer from "./Header/HeaderComputer";
 import HeaderComputerBusiness from "./Header/HeaderComputerBusiness";
+import HeaderComputerSimplicity from "./Header/HeaderComputerSimplicity";
 import HeaderMobile from "./Header/HeaderMobile";
 import HeaderMobileBusiness from "./Header/HeaderMobileBusiness";
+import HeaderMobileSimplicity from "./Header/HeaderMobileSimplicity";
+import HeaderIpad from "./Header/HeaderIpad";
 
 export default {
   name: "Header",
   components: {
     HeaderComputer,
     HeaderComputerBusiness,
+    HeaderComputerSimplicity,
     HeaderMobile,
-    HeaderMobileBusiness
+    HeaderMobileBusiness,
+    HeaderMobileSimplicity,
+    HeaderIpad
   },
-  props: {},
+  props: {
+    menuList: {
+      default: []
+    }
+  },
   inject: ["screenType", "BaseLayout"],
   data() {
     return {
       openMenuFlag: false,
-      currentMenu: "3",
-      menuList: [
-        { id: "1", title: "个人", icon: "el-icon-user" },
-        { id: "2", title: "资产", icon: "el-icon-coin" },
-        { id: "3", title: "运维", icon: "el-icon-monitor" },
-        { id: "4", title: "日志", icon: "el-icon-notebook-1" },
-        { id: "5", title: "审计", icon: "el-icon-notebook-2" },
-        { id: "6", title: "报修", icon: "el-icon-weixiu" },
-        { id: "7", title: "配置", icon: "el-icon-s-operation" },
-        { id: "8", title: "报警", icon: "el-icon-warning-outline" },
-        { id: "9", title: "产量", icon: "el-icon-s-data" },
-        { id: "10", title: "可视化", icon: "el-icon-picture-outline-round" },
-        { id: "11", title: "可视化", icon: "el-icon-picture-outline-round" }
-      ]
+      currentMenu: "3"
     };
   },
   computed: {},
@@ -69,6 +84,9 @@ export default {
   methods: {
     choiceMenu(menu) {
       console.log(menu);
+      if (menu.path) {
+        this.$router.push(menu.path);
+      }
     }
   }
 };

@@ -21,12 +21,12 @@ const routes = [{
         {
             path: 'operation/host-manage',
             name: 'operation',
-            component: () => import('@/pages/Operation/HostManage/HostManage'),
+            component: () => import('@/pages/Operation/HostManage'),
         },
         {
             path: 'operation/host-manage/device-group',
             name: 'device-group',
-            component: () => import('@/pages/Operation/HostManage/DeviceGroup/DeviceGroup')
+            component: () => import('@/pages/Operation/HostManage/DeviceGroup')
         }
     ],
 }]
