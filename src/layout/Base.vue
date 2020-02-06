@@ -49,23 +49,38 @@ export default {
           children: [
             {
               title: "主机管理",
-              path: "",
+              icon: "el-icon-monitor",
+              path: "/operation/host-manage",
               children: [
                 {
                   title: "设备组",
+                  icon: "el-icon-coin",
                   path: "/operation/host-manage/device-group"
                 },
-                { title: "设备", path: "" },
-                { title: "授权", path: "" }
+                { title: "设备", icon: "el-icon-monitor", path: "" },
+                { title: "授权", icon: "el-icon-document-checked", path: "" }
               ]
             },
             {
               title: "拓扑管理",
+              icon: "el-icon-document-copy",
               path: "",
               children: [
-                { title: "网络拓扑", path: "" },
-                { title: "服务器拓扑", path: "" },
-                { title: "应用拓扑", path: "" }
+                {
+                  title: "网络拓扑",
+                  icon: "el-icon-coin",
+                  path: ""
+                },
+                {
+                  title: "服务器拓扑",
+                  icon: "el-icon-coin",
+                  path: ""
+                },
+                {
+                  title: "应用拓扑",
+                  icon: "el-icon-coin",
+                  path: ""
+                }
               ]
             }
           ]
