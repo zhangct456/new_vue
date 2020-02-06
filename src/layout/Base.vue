@@ -104,7 +104,7 @@ export default {
     }
     const path = this.$router.history.current.path;
     this.menuList.forEach((item, i) => {
-      if (item.name && path.indexOf(item.name) != -1) {
+      if (item.name && path.indexOf(item.path) != -1) {
         this.subMenuList = item.children;
       }
     });

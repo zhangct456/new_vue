@@ -25,6 +25,10 @@ export default {
   mounted() {
     window.console.log(document.body.clientWidth);
     window.console.log(this.screenType);
+    // 设置页面title
+    if (this.$baseConfig.info.title) {
+      document.querySelector('title').innerHTML = this.$baseConfig.info.title;
+    }
   }
 };
 </script>

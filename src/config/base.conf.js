@@ -1,5 +1,6 @@
 export default {
     info: {
+        title: 'app', // 页面title
         version: "0.1.001",  // 软件版本号
         company: {
           name: "公司名称", // 公司名称
