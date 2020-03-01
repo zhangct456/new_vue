@@ -150,9 +150,9 @@ export default {
     border: 1px solid #2e6fa7;
   }
 }
-.computer-show-aside {
+// .computer-show-aside {
   // padding-left: 200px;
-}
+// }
 // 风格1
 .base-box.classic {
   background-color: #153c66;
