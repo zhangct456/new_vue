@@ -10,8 +10,8 @@
         class="login-form"
         label-width="80px"
       >
-        <el-form-item label="用户名" prop="loginName">
-          <el-input v-model="loginForm.loginName"></el-input>
+        <el-form-item label="用户名" prop="username">
+          <el-input v-model="loginForm.username"></el-input>
         </el-form-item>
         <el-form-item label="密码" prop="password">
           <el-input type="password" v-model="loginForm.password" autocomplete="off"></el-input>
@@ -33,51 +33,67 @@ export default {
   name: "Login",
   components: {},
   props: {},
+  inject: ["appModule"],
   data() {
     return {
       verImgPath: "./static/images/logo.jpg",
       loginForm: {
-        loginName: "",
+        username: "",
         password: "",
         verCode: ""
       },
       rules: {
-        loginName: [
+        username: [
           { required: true, message: "请输入用户名", trigger: "blur" },
-          { min: 3, message: "长度大于 3 个字符", trigger: "blur" }
+          { min: 2, message: "长度大于 2 个字符", trigger: "blur" }
         ],
         password: [{ required: true, message: "请输入密码", trigger: "blur" }]
-      }
+      },
+      tokenTimeout: null
     };
   },
   computed: {},
   created() {},
   mounted() {
     // 判断登录信息存在时不用重新登录
-    const userInfo = sessionStorage.getItem("userInfo");
-    let user;
-    if (userInfo) {
-      try {
-        user = JSON.parse(userInfo);
-        if (user) {
-          this.$router.push("/operation");
-        }
-      } catch (error) {}
-    }
+    // const userInfo = sessionStorage.getItem("userInfo");
+    // let user;
+    // if (userInfo) {
+    //   try {
+    //     user = JSON.parse(userInfo);
+    //     if (user) {
+    //       this.$router.push("/operation");
+    //     }
+    //   } catch (error) {}
+    // }
   },
   methods: {
     onLogin() {
       this.$refs["loginForm"].validate(valid => {
         if (valid) {
-          const userInfo = {};
-          sessionStorage.setItem("userInfo", JSON.stringify(userInfo));
-          this.$router.push("/operation");
+          this.$remote
+            .post("user/login", {
+              username: this.loginForm.username,
+              password: this.loginForm.password
+            })
+            .then(
+              res => {
+                if (res.code == 20001) {
+                  const token = res.data.token;
+                  this.appModule.recordToken(token);
+                  this.$router.push("/operation");
+                }
+              },
+              rej => {
+                this.$alert(rej);
+              }
+            );
         } else {
           console.log("error submit!!");
           return false;
         }
       });
-    }
+    },
   }
 };
 </script>

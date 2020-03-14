@@ -109,7 +109,6 @@ export default {
     }
   },
   watch: {},
-  methods: {},
   created() {},
   mounted() {
     if (this.screenType === "mobile") {
@@ -132,7 +131,16 @@ export default {
       }
     });
     next();
-  }
+  },
+  methods: {
+    getMenuList() {
+      this.$remote.post('user/register').then(res => {
+        console.log(res);
+      }, rej => {
+
+      })
+    }
+  },
 };
 </script>
 <style lang="less" scoped>

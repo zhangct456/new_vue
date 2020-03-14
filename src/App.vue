@@ -19,7 +19,13 @@ export default {
       screenType = "mobile";
     }
     return {
-      screenType: screenType
+      screenType: screenType,
+      appModule: this
+    };
+  },
+  data() {
+    return {
+      tokenTimeout: null
     };
   },
   mounted() {
@@ -28,6 +34,29 @@ export default {
     // 设置页面title
     if (this.$baseConfig.info.title) {
       document.querySelector("title").innerHTML = this.$baseConfig.info.title;
+    }
+  },
+  methods: {
+    recordToken(token) {
+      sessionStorage.setItem("token", token);
+      this.setTokenTimeout();
+      document.documentElement.addEventListener("click", () => {
+        this.clearTokenTimeout();
+        this.setTokenTimeout();
+      });
+    },
+
+    setTokenTimeout() {
+      console.log("set");
+      this.tokenTimeout = setTimeout(() => {
+        console.log("hidden");
+        sessionStorage.removeItem("token");
+      }, this.$baseConfig.login.timeout);
+    },
+
+    clearTokenTimeout() {
+      console.log("clear");
+      clearTimeout(this.tokenTimeout);
     }
   }
 };
