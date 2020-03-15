@@ -1,3 +1,4 @@
+import { MessageBox } from 'element-ui';
 import Vue from 'vue';
 import Router from 'vue-router';
 import echarts from 'echarts'
@@ -55,7 +56,11 @@ route.beforeEach((to, from, next) => {
         } else {
             const token = sessionStorage.getItem('token');
             if (!token) {
-                next('/login')
+                MessageBox.alert("登录超时，请重新登录", {
+                    callback: () => {
+                        next('/login');
+                    }
+                })
             } else {
                 next();
             }

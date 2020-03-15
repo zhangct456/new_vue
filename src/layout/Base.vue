@@ -120,6 +120,7 @@ export default {
       res => {
         this.menuList = res.data.navigationsList;
         const path = this.$router.history.current.path;
+        this.subMenuList = [];
         this.menuList.forEach((item, i) => {
           if (item.name && path.indexOf(item.path) != -1) {
             this.subMenuList = item.children;
