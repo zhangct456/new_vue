@@ -116,21 +116,18 @@ export default {
     } else {
       this.showAside = true;
     }
-    setTimeout(() => {
-      sessionStorage.removeItem("token");
-      this.getMenuList().then(
-        res => {
-          this.menuList = res.data.navigationsList;
-          const path = this.$router.history.current.path;
-          this.menuList.forEach((item, i) => {
-            if (item.name && path.indexOf(item.path) != -1) {
-              this.subMenuList = item.children;
-            }
-          });
-        },
-        rej => {}
-      );
-    }, 5000);
+    this.getMenuList().then(
+      res => {
+        this.menuList = res.data.navigationsList;
+        const path = this.$router.history.current.path;
+        this.menuList.forEach((item, i) => {
+          if (item.name && path.indexOf(item.path) != -1) {
+            this.subMenuList = item.children;
+          }
+        });
+      },
+      rej => {}
+    );
   },
   beforeRouteUpdate(to, from, next) {
     const path = to.path;
