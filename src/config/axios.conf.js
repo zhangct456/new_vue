@@ -1,16 +1,37 @@
+import router from '@/router';
+import { MessageBox } from 'element-ui';
 import axios from 'axios'
 import qs from 'qs'
 
 // axios 配置
 axios.defaults.timeout = 5000;
-// axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
-const baseUrl = 'http://106.12.209.249:1001/'
+// axios.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8';
+const baseUrl = '/app/'
+// const baseUrl = 'http://106.12.209.249:1001/'
 //const baseUrl = '/local/';
 //const baseUrl = '/mobile/';
 
+
+//  不检测登录状态的请求
+const noCheckRes = ['user/login'];
+
 //remote before
 axios.interceptors.request.use((config) => {
-    console.log(config);
+    // 请求头增加token
+    if (noCheckRes.indexOf(config.url) == -1) {
+        const token = sessionStorage.getItem('token');
+        if (token) {
+            config.headers.Authorization = 'Bearer ' + token;
+        } else {
+            MessageBox.alert("登录超时，请重新登录", {
+                callback: () => {
+                    router.push('/login');
+                }
+            })
+            return;
+        }
+    }
+    // 请求头增加token end
     if (baseUrl != '/local/') {
         config.url = baseUrl + config.url;
     } else {

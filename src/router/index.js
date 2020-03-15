@@ -15,7 +15,7 @@ const routes = [
     }, {
         path: '/',
         name: 'base',
-        redirect: '/login',
+        redirect: '/operation',
         component: () => import('@/layout/Base'),
         children: [
             {
@@ -39,5 +39,28 @@ const routes = [
 const route = new Router({
     routes
 })
+
+//  不检测登录状态的页面
+const noCheckRoute = ['login'];
+
+route.beforeEach((to, from, next) => {
+    if (to.matched.length === 0) {
+        //路由不存在
+        next('/login');//否则返回根路由
+    } else {
+        //匹配到则判断登录状态
+        if (noCheckRoute.indexOf(to.name) !== -1) {
+            // 不需检测的页面直接跳转
+            next()
+        } else {
+            const token = sessionStorage.getItem('token');
+            if (!token) {
+                next('/login')
+            } else {
+                next();
+            }
+        }
+    }
+});
 
 export default route;

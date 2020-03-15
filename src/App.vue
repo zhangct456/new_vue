@@ -47,15 +47,12 @@ export default {
     },
 
     setTokenTimeout() {
-      console.log("set");
       this.tokenTimeout = setTimeout(() => {
-        console.log("hidden");
         sessionStorage.removeItem("token");
-      }, this.$baseConfig.login.timeout);
+      }, this.$baseConfig.login.timeout * 1000);
     },
 
     clearTokenTimeout() {
-      console.log("clear");
       clearTimeout(this.tokenTimeout);
     }
   }

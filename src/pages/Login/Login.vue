@@ -78,10 +78,13 @@ export default {
             })
             .then(
               res => {
-                if (res.code == 20001) {
+                if (res.code == 20000) {
+                  console.log(res);
                   const token = res.data.token;
                   this.appModule.recordToken(token);
-                  this.$router.push("/operation");
+                  setTimeout(() => {
+                    this.$router.push("/operation");
+                  }, 0);
                 }
               },
               rej => {
@@ -93,7 +96,7 @@ export default {
           return false;
         }
       });
-    },
+    }
   }
 };
 </script>

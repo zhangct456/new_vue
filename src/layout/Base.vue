@@ -116,12 +116,21 @@ export default {
     } else {
       this.showAside = true;
     }
-    const path = this.$router.history.current.path;
-    this.menuList.forEach((item, i) => {
-      if (item.name && path.indexOf(item.path) != -1) {
-        this.subMenuList = item.children;
-      }
-    });
+    setTimeout(() => {
+      sessionStorage.removeItem("token");
+      this.getMenuList().then(
+        res => {
+          this.menuList = res.data.navigationsList;
+          const path = this.$router.history.current.path;
+          this.menuList.forEach((item, i) => {
+            if (item.name && path.indexOf(item.path) != -1) {
+              this.subMenuList = item.children;
+            }
+          });
+        },
+        rej => {}
+      );
+    }, 5000);
   },
   beforeRouteUpdate(to, from, next) {
     const path = to.path;
@@ -134,13 +143,22 @@ export default {
   },
   methods: {
     getMenuList() {
-      this.$remote.post('user/register').then(res => {
-        console.log(res);
-      }, rej => {
-
-      })
+      return new Promise((resolve, reject) => {
+        this.$remote.post("user/profile").then(
+          res => {
+            if (res.code === 20000) {
+              resolve(res);
+            } else {
+              reject("");
+            }
+          },
+          rej => {
+            reject(rej);
+          }
+        );
+      });
     }
-  },
+  }
 };
 </script>
 <style lang="less" scoped>
@@ -159,7 +177,7 @@ export default {
   }
 }
 // .computer-show-aside {
-  // padding-left: 200px;
+// padding-left: 200px;
 // }
 // 风格1
 .base-box.classic {
