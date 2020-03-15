@@ -1,7 +1,7 @@
 <template>
   <div class="login">
     <img :src="$baseConfig.login.logo" />
-    <div class="login_info">
+    <div class="login_info" :class="{'mobile-login': screenType == 'mobile'}">
       <div class="login_title">智慧运维态势分析平台</div>
       <el-form
         :model="loginForm"
@@ -33,7 +33,7 @@ export default {
   name: "Login",
   components: {},
   props: {},
-  inject: ["appModule"],
+  inject: ["appModule", "screenType"],
   data() {
     return {
       verImgPath: "./static/images/logo.jpg",
@@ -130,6 +130,9 @@ export default {
     .login-btn {
       width: 100%;
     }
+  }
+  .mobile-login {
+    right: calc(50% - 200px);
   }
 }
 </style>
