@@ -38,61 +38,61 @@ export default {
       showAside: true,
       styleType: "simplicity", // classic: 经典; business: 商务; simplicity: 简约;
       menuList: [
-        { id: "1", title: "个人", icon: "el-icon-user" },
-        { id: "2", title: "资产", icon: "el-icon-coin" },
-        {
-          id: "3",
-          title: "运维",
-          name: "operation", // 路由名，判断header状态
-          path: "/operation",
-          icon: "el-icon-monitor",
-          children: [
-            {
-              title: "主机管理",
-              icon: "el-icon-monitor",
-              path: "/operation/host-manage",
-              children: [
-                {
-                  title: "设备组",
-                  icon: "el-icon-coin",
-                  path: "/operation/host-manage/device-group"
-                },
-                { title: "设备", icon: "el-icon-monitor", path: "" },
-                { title: "授权", icon: "el-icon-document-checked", path: "" }
-              ]
-            },
-            {
-              title: "拓扑管理",
-              icon: "el-icon-document-copy",
-              path: "",
-              children: [
-                {
-                  title: "网络拓扑",
-                  icon: "el-icon-coin",
-                  path: ""
-                },
-                {
-                  title: "服务器拓扑",
-                  icon: "el-icon-coin",
-                  path: ""
-                },
-                {
-                  title: "应用拓扑",
-                  icon: "el-icon-coin",
-                  path: ""
-                }
-              ]
-            }
-          ]
-        },
-        { id: "4", title: "日志", icon: "el-icon-notebook-1" },
-        { id: "5", title: "审计", icon: "el-icon-notebook-2" },
-        { id: "6", title: "报修", icon: "el-icon-weixiu" },
-        { id: "7", title: "配置", icon: "el-icon-s-operation" },
-        { id: "8", title: "报警", icon: "el-icon-warning-outline" },
-        { id: "9", title: "产量", icon: "el-icon-s-data" },
-        { id: "10", title: "可视化", icon: "el-icon-picture-outline-round" },
-        { id: "11", title: "可视化", icon: "el-icon-picture-outline-round" }
+        // { id: "1", title: "个人", icon: "el-icon-user" },
+        // { id: "2", title: "资产", icon: "el-icon-coin" },
+        // {
+        //   id: "3",
+        //   title: "运维",
+        //   name: "operation", // 路由名，判断header状态
+        //   path: "/operation",
+        //   icon: "el-icon-monitor",
+        //   children: [
+        //     {
+        //       title: "主机管理",
+        //       icon: "el-icon-monitor",
+        //       path: "/operation/host-manage",
+        //       children: [
+        //         {
+        //           title: "设备组",
+        //           icon: "el-icon-coin",
+        //           path: "/operation/host-manage/device-group"
+        //         },
+        //         { title: "设备", icon: "el-icon-monitor", path: "" },
+        //         { title: "授权", icon: "el-icon-document-checked", path: "" }
+        //       ]
+        //     },
+        //     {
+        //       title: "拓扑管理",
+        //       icon: "el-icon-document-copy",
+        //       path: "",
+        //       children: [
+        //         {
+        //           title: "网络拓扑",
+        //           icon: "el-icon-coin",
+        //           path: ""
+        //         },
+        //         {
+        //           title: "服务器拓扑",
+        //           icon: "el-icon-coin",
+        //           path: ""
+        //         },
+        //         {
+        //           title: "应用拓扑",
+        //           icon: "el-icon-coin",
+        //           path: ""
+        //         }
+        //       ]
+        //     }
+        //   ]
+        // },
+        // { id: "4", title: "日志", icon: "el-icon-notebook-1" },
+        // { id: "5", title: "审计", icon: "el-icon-notebook-2" },
+        // { id: "6", title: "报修", icon: "el-icon-weixiu" },
+        // { id: "7", title: "配置", icon: "el-icon-s-operation" },
+        // { id: "8", title: "报警", icon: "el-icon-warning-outline" },
+        // { id: "9", title: "产量", icon: "el-icon-s-data" },
+        // { id: "10", title: "可视化", icon: "el-icon-picture-outline-round" },
+        // { id: "11", title: "可视化", icon: "el-icon-picture-outline-round" }
       ],
       subMenuList: []
     };

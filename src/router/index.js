@@ -10,13 +10,17 @@ Vue.prototype.$echarts = echarts
 
 const routes = [
     {
+        path: "",
+        redirect: '/login',
+    },
+    {
         path: '/login',
         name: 'login',
         component: () => import('@/pages/Login/Login')
     }, {
         path: '/',
         name: 'base',
-        redirect: '/operation',
+        redirect: '/login',
         component: () => import('@/layout/Base'),
         children: [
             {
