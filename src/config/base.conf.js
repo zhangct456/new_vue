@@ -15,7 +15,7 @@ export default {
     login: {
         image: "",    // 登录页图片
         name: "",  // 登录页软件名称
-        logo: "./static/images/logo.jpg", // 登录页logo
+        logo: "./static/images/login-logo.jpg", // 登录页logo
         timeout: 30 // 登出超时时间
     },
     logoPath: "./static/images/logo.jpg",

@@ -35,21 +35,46 @@ export default {
     if (this.$baseConfig.info.title) {
       document.querySelector("title").innerHTML = this.$baseConfig.info.title;
     }
+    if(sessionStorage.getItem('token')) {
+      this.setTokenTimeout();
+    }
   },
   methods: {
     recordToken(token) {
       sessionStorage.setItem("token", token);
       this.setTokenTimeout();
-      document.documentElement.addEventListener("click", () => {
-        this.clearTokenTimeout();
-        this.setTokenTimeout();
-      });
+      document.documentElement.addEventListener("click", this.domListenerFn);
+    },
+
+    domListenerFn() {
+      this.clearTokenTimeout();
+      this.setTokenTimeout();
     },
 
     setTokenTimeout() {
-      this.tokenTimeout = setTimeout(() => {
+      const time = new Date().getTime();
+      sessionStorage.setItem("timeout", time);
+      this.tokenTimeout = setTimeout(this.timeoutFn, 1000);
+    },
+
+    timeoutFn() {
+      const time = new Date().getTime();
+      const oldTime = sessionStorage.getItem("timeout");
+      if (time - oldTime > this.$baseConfig.login.timeout * 1000) {
         sessionStorage.removeItem("token");
-      }, this.$baseConfig.login.timeout * 1000);
+        this.clearTokenTimeout();
+        document.documentElement.removeEventListener(
+          "click",
+          this.domListenerFn
+        );
+        this.$alert("登录超时，请重新登录", {
+          callback: () => {
+            this.$router.push("/login");
+          }
+        });
+      } else {
+        this.tokenTimeout = setTimeout(this.timeoutFn, 1000);
+      }
     },
 
     clearTokenTimeout() {

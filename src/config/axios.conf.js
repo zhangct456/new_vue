@@ -5,7 +5,7 @@ import qs from 'qs'
 
 // axios 配置
 axios.defaults.timeout = 5000;
-// axios.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8';
+axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 // const baseUrl = '/app/'
 const baseUrl = 'http://106.12.209.249:1001/'
 //const baseUrl = '/local/';
