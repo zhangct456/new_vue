@@ -79,7 +79,6 @@ export default {
             .then(
               res => {
                 if (res.code == 20000) {
-                  console.log(res);
                   const token = res.data.token;
                   // const token = "fsdfd";
                   this.appModule.recordToken(token);

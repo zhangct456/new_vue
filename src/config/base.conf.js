@@ -16,19 +16,22 @@ export default {
         image: "",    // 登录页图片
         name: "",  // 登录页软件名称
         logo: "./static/images/login-logo.jpg", // 登录页logo
-        timeout: 30 // 登出超时时间
+        timeout: 300 // 登出超时时间
     },
     logoPath: "./static/images/logo.jpg",
     style: {
         classic: {
-            logo: "./static/images/logo.jpg"    // 蓝色风格logo
+            logo: "./static/images/login-logo.jpg",    // 蓝色风格logo
+            mobile_logo: "./static/images/small-logo.jpg"
         },
         business: {
-            logo: "./static/images/logo.jpg",    // 商务风格logo
-            small_logo: "./static/images/logo.jpg"
+            logo: "./static/images/login-logo.jpg",    // 商务风格logo
+            small_logo: "./static/images/small-logo.jpg",
+            mobile_logo: "./static/images/small-logo.jpg"
         },
         simplicity: {
-            logo: "./static/images/logo.jpg"    // 平板风格logo
+            logo: "./static/images/login-logo.jpg",   // 平板风格logo
+            mobile_logo: "./static/images/small-logo.jpg"
         }
     },
 }

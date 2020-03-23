@@ -1,7 +1,7 @@
 <template>
   <div class="mobile-header">
     <div class="logo-box">
-      <img class="logo" :src="$baseConfig.style.simplicity.logo" />
+      <img class="logo" :src="$baseConfig.style.simplicity.mobile_logo" />
     </div>
     <div class="aside-ctrl" @click="BaseLayout.showAside = !BaseLayout.showAside">
       <i class="el-icon-s-unfold"></i>
@@ -24,6 +24,7 @@
       </ul>
     </div>
     <div class="style-change">
+      <img src="@/assets/close-icon-2.svg" @click="appModule.logout" />
       <select v-model="currentStyle" @change="changeStyle">
         <option label="经典" value="classic">经典</option>
         <option label="商务" value="business">商务</option>
@@ -45,7 +46,7 @@ export default {
       default: ""
     }
   },
-  inject: ["screenType", "BaseLayout"],
+  inject: ["appModule", "screenType", "BaseLayout"],
   data() {
     return {
       openMenuFlag: false,
@@ -71,7 +72,7 @@ export default {
     },
 
     changeStyle() {
-      this.BaseLayout.styleType = this.currentStyle;
+      this.BaseLayout.changeStyle(this.currentStyle);
     }
   }
 };
@@ -135,9 +136,15 @@ export default {
     }
   }
   .style-change {
-    width: 100px;
+    width: 140px;
     padding-right: 20px;
     text-align: right;
+    img {
+      float: right;
+      height: 40px;
+      padding: 10px 0;
+      margin-left: 10px;
+    }
     select {
       width: 50px;
       height: 25px;

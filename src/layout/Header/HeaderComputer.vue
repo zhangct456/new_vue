@@ -51,6 +51,9 @@
       <li>
         <i class="icon el-icon-info"></i>
       </li>
+      <li>
+        <img src="@/assets/close-icon-1.svg" @click="appModule.logout" />
+      </li>
     </ul>
   </div>
 </template>
@@ -67,7 +70,7 @@ export default {
       default: ""
     }
   },
-  inject: ["screenType", "BaseLayout"],
+  inject: ["appModule", "screenType", "BaseLayout"],
   data() {
     return {
       openMenuFlag: false,
@@ -93,7 +96,7 @@ export default {
     },
 
     changeStyle() {
-      this.BaseLayout.styleType = this.currentStyle;
+      this.BaseLayout.changeStyle(this.currentStyle);
     }
   }
 };
@@ -116,7 +119,8 @@ export default {
     flex: 2;
     width: 120px;
     .logo {
-      height: 40px;
+      // height: 40px;
+      width: 100%;
       vertical-align: middle;
     }
   }
@@ -203,6 +207,10 @@ export default {
       text-align: center;
       cursor: pointer;
       padding: 0 6px;
+      img {
+        height: 80px;
+        padding: 30px 0;
+      }
     }
   }
 }

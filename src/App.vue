@@ -35,7 +35,7 @@ export default {
     if (this.$baseConfig.info.title) {
       document.querySelector("title").innerHTML = this.$baseConfig.info.title;
     }
-    if(sessionStorage.getItem('token')) {
+    if (sessionStorage.getItem("token")) {
       this.setTokenTimeout();
     }
   },
@@ -46,17 +46,30 @@ export default {
       document.documentElement.addEventListener("click", this.domListenerFn);
     },
 
+    // 退出系统
+    logout() {
+      this.$confirm("是否退出？", "", {
+        distinguishCancelAndClose: true,
+        confirmButtonText: "确定",
+        cancelButtonText: "取消"
+      })
+        .then(() => {
+          sessionStorage.removeItem("token");
+          this.$router.push("/login");
+        })
+        .catch(action => {});
+    },
+
+    // 登录状态过期时间
     domListenerFn() {
       this.clearTokenTimeout();
       this.setTokenTimeout();
     },
-
     setTokenTimeout() {
       const time = new Date().getTime();
       sessionStorage.setItem("timeout", time);
       this.tokenTimeout = setTimeout(this.timeoutFn, 1000);
     },
-
     timeoutFn() {
       const time = new Date().getTime();
       const oldTime = sessionStorage.getItem("timeout");
@@ -76,7 +89,6 @@ export default {
         this.tokenTimeout = setTimeout(this.timeoutFn, 1000);
       }
     },
-
     clearTokenTimeout() {
       clearTimeout(this.tokenTimeout);
     }

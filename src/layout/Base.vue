@@ -109,7 +109,10 @@ export default {
     }
   },
   watch: {},
-  created() {},
+  created() {
+    const styleFlagCatch = sessionStorage.getItem("layoutStyleFlagCatch");
+    this.styleType = styleFlagCatch || "classic";
+  },
   mounted() {
     if (this.screenType === "mobile") {
       this.showAside = false;
@@ -155,6 +158,11 @@ export default {
           }
         );
       });
+    },
+
+    changeStyle(style) {
+      this.styleType = style;
+      sessionStorage.setItem("layoutStyleFlagCatch", style);
     }
   }
 };

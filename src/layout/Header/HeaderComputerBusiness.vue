@@ -33,8 +33,11 @@
       <li>
         <i class="icon el-icon-question"></i>
       </li>-->
-      <li>
+      <!-- <li>
         <i class="icon el-icon-info"></i>
+      </li>-->
+      <li>
+        <img src="@/assets/close-icon-2.svg" @click="appModule.logout" />
       </li>
     </ul>
   </div>
@@ -52,7 +55,7 @@ export default {
       default: ""
     }
   },
-  inject: ["screenType", "BaseLayout"],
+  inject: ["appModule", "screenType", "BaseLayout"],
   data() {
     return {
       openMenuFlag: false,
@@ -69,7 +72,7 @@ export default {
     },
 
     changeStyle() {
-      this.BaseLayout.styleType = this.currentStyle;
+      this.BaseLayout.changeStyle(this.currentStyle);
     }
   }
 };
@@ -155,6 +158,9 @@ export default {
       text-align: center;
       cursor: pointer;
       padding: 0 6px;
+      img {
+        height: 20px;
+      }
     }
   }
 }

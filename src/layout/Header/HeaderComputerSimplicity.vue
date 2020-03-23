@@ -24,11 +24,15 @@
       <li>
         <i class="icon el-icon-info"></i>
       </li>
+      <li>
+        <img src="@/assets/close-icon-2.svg" @click="appModule.logout" />
+      </li>
     </ul>
     <div class="menu-box" v-show="menuBoxDisplay">
       <div class="bg-color"></div>
       <div class="menu-header">
         <img class="logo" :src="$baseConfig.style.simplicity.logo" />
+        <img class="close-icon" src="@/assets/close-icon-2.svg" @click="appModule.logout" />
         <i class="icon el-icon-warning-outline"></i>
       </div>
       <div class="swiper-container">
@@ -66,7 +70,7 @@ export default {
       default: ""
     }
   },
-  inject: ["screenType", "BaseLayout"],
+  inject: ["appModule", "screenType", "BaseLayout"],
   data() {
     return {
       openMenuFlag: false,
@@ -92,7 +96,7 @@ export default {
     },
 
     changeStyle() {
-      this.BaseLayout.styleType = this.currentStyle;
+      this.BaseLayout.changeStyle(this.currentStyle);
     }
   }
 };
@@ -160,6 +164,10 @@ export default {
       cursor: pointer;
       padding: 0 6px;
       color: white;
+      img {
+        height: 40px;
+        padding: 10px 0;
+      }
     }
   }
   .menu-box {
@@ -194,10 +202,16 @@ export default {
       }
       i {
         float: right;
-        margin-right: 40px;
+        margin-right: 20px;
         font-size: 20px;
         color: white;
         line-height: 60px;
+      }
+      .close-icon {
+        float: right;
+        height: 60px;
+        padding: 20px 0;
+        margin: 0 40px 0 0;
       }
     }
     .swiper-container {
