@@ -68,25 +68,26 @@ export default {
   props: {
     menuList: {
       default: []
+    },
+    currentMenu: {
+      default: ""
     }
   },
   inject: ["screenType", "BaseLayout"],
   data() {
     return {
-      openMenuFlag: false,
-      currentMenu: "3"
+      openMenuFlag: false
     };
   },
   computed: {},
   created() {},
-  mounted() {},
+  mounted() {
+    const path = this.$router.history.current.path;
+  },
   watch: {},
   methods: {
     choiceMenu(menu) {
-      console.log(menu);
-      if (menu.path) {
-        this.$router.push(menu.path);
-      }
+      this.$emit("change", menu);
     }
   }
 };

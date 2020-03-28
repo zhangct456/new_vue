@@ -11,7 +11,7 @@
       'simplicity': styleType === 'simplicity' && !isIpad
     }"
   >
-    <Header :menu-list="menuList"></Header>
+    <Header :menu-list="menuList" :current-menu="currentMenu" @change="changeMenu"></Header>
     <Aside :menu-list="subMenuList"></Aside>
     <div class="content">
       <router-view />
@@ -38,7 +38,14 @@ export default {
       showAside: true,
       styleType: "simplicity", // classic: 经典; business: 商务; simplicity: 简约;
       menuList: [
-        // { id: "1", title: "个人", icon: "el-icon-user" },
+        // {
+        //   id: "1",
+        //   title: "个人",
+        //   icon: "el-icon-user",
+        //   name: "personal",
+        //   path: "/personal",
+        //   children: [{}]
+        // },
         // { id: "2", title: "资产", icon: "el-icon-coin" },
         // {
         //   id: "3",
@@ -94,7 +101,8 @@ export default {
         // { id: "10", title: "可视化", icon: "el-icon-picture-outline-round" },
         // { id: "11", title: "可视化", icon: "el-icon-picture-outline-round" }
       ],
-      subMenuList: []
+      subMenuList: [],
+      currentMenu: ""
     };
   },
   computed: {
@@ -114,6 +122,7 @@ export default {
     this.styleType = styleFlagCatch || "classic";
   },
   mounted() {
+    this.setCurrentMenu();
     if (this.screenType === "mobile") {
       this.showAside = false;
     } else {
@@ -122,13 +131,7 @@ export default {
     this.getMenuList().then(
       res => {
         this.menuList = res.data.navigationsList;
-        const path = this.$router.history.current.path;
-        this.subMenuList = [];
-        this.menuList.forEach((item, i) => {
-          if (item.name && path.indexOf(item.path) != -1) {
-            this.subMenuList = item.children;
-          }
-        });
+        this.setCurrentMenu();
       },
       rej => {}
     );
@@ -164,6 +167,24 @@ export default {
     changeStyle(style) {
       this.styleType = style;
       sessionStorage.setItem("layoutStyleFlagCatch", style);
+    },
+
+    changeMenu(menu) {
+      if (menu.path) {
+        this.subMenuList = menu.children;
+        this.currentMenu = menu.id;
+        this.$router.push(menu.path);
+      }
+    },
+
+    setCurrentMenu() {
+      const path = this.$router.history.current.path;
+      this.menuList.forEach((item, i) => {
+        if (item.path && path.indexOf(item.path) != -1) {
+          this.subMenuList = item.children;
+          this.currentMenu = item.id;
+        }
+      });
     }
   }
 };

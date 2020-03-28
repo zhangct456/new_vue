@@ -37,6 +37,10 @@ const routes = [
                 path: 'operation/host-manage/device-group',
                 name: 'device-group',
                 component: () => import('@/pages/Operation/HostManage/DeviceGroup')
+            }, {
+                path: "personal",
+                name: "personal",
+                component: () => import('@/pages/Personal/Personal')
             }
         ],
     }]
