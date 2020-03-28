@@ -6,9 +6,9 @@
       'base-box-mobile': isMobile,
       'base-box-ipad': isIpad,
       'computer-show-aside': showAside,
-      'classic': styleType === 'classic',
-      'business': styleType === 'business',
-      'simplicity': styleType === 'simplicity'
+      'classic': styleType === 'classic' && !isIpad,
+      'business': styleType === 'business' && !isIpad,
+      'simplicity': styleType === 'simplicity' && !isIpad
     }"
   >
     <Header :menu-list="menuList"></Header>
@@ -148,6 +148,7 @@ export default {
         this.$remote.post("user/profile").then(
           res => {
             if (res.code === 20000) {
+              console.log(res);
               resolve(res);
             } else {
               reject("");
@@ -171,7 +172,6 @@ export default {
 .base-box {
   width: 100%;
   height: 100%;
-  // padding: 80px 0 25px 0px;
   background-color: #153c66;
   transition: 0.5s all ease;
   .content {
@@ -182,9 +182,6 @@ export default {
     border: 1px solid #2e6fa7;
   }
 }
-// .computer-show-aside {
-// padding-left: 200px;
-// }
 // 风格1
 .base-box.classic {
   background-color: #153c66;
@@ -239,8 +236,12 @@ export default {
 .base-box-ipad {
   width: 100%;
   height: 100%;
-  padding: 0;
-  background-color: #153c66;
+  padding: 60px 0 0;
+  background-color: #eeeeee;
+  .content {
+    background-color: #eeeeee;
+    border: none;
+  }
 }
 </style>
 <style lang="less">
@@ -388,6 +389,26 @@ export default {
     .el-input__inner {
       background: none;
       color: white;
+    }
+  }
+}
+// 风格4 平板专用
+.base-box.base-box-ipad {
+  .info-modular-box {
+    padding: 5px;
+    .info-modular {
+      height: 100%;
+      border-radius: 5px;
+      border: none;
+      background-color: rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+      .title {
+        color: white;
+        font-size: 12px;
+        line-height: 30px;
+        padding: 0 24px;
+        background-color: rgba(0, 0, 0, 0.6);
+      }
     }
   }
 }

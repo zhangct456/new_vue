@@ -1,0 +1,181 @@
+{
+    "flag": true,
+    "code": 20000,
+    "message": "成功",
+    "data": {
+        "navigationsList": [
+            {
+                "path": "",
+                "icon": "el-icon-s-operation",
+                "name": "",
+                "id": "1239463756011016192",
+                "title": "配置",
+                "url": "",
+                "status": ""
+            },
+            {
+                "path": "",
+                "icon": "el-icon-picture-outline-round",
+                "name": "",
+                "id": "1239464280399679488",
+                "title": "可视化",
+                "url": "",
+                "status": ""
+            },
+            {
+                "path": "",
+                "icon": "el-icon-user",
+                "name": "",
+                "id": "1239461458593583104",
+                "title": "个人",
+                "url": "",
+                "status": ""
+            },
+            {
+                "path": "",
+                "icon": "el-icon-s-data",
+                "name": "",
+                "id": "1239464077340839936",
+                "title": "产量",
+                "url": "",
+                "status": ""
+            },
+            {
+                "path": "",
+                "icon": "el-icon-warning-outline",
+                "name": "",
+                "id": "1239463974404231168",
+                "title": "报警",
+                "url": "",
+                "status": ""
+            },
+            {
+                "path": "/operation",
+                "children": [
+                    [
+                        {
+                            "path": "",
+                            "children": [
+                                {
+                                    "path": "",
+                                    "icon": "el-icon-coin",
+                                    "name": "",
+                                    "navigationBarId": "1239459230398943232",
+                                    "id": "1239468979395891200",
+                                    "title": "服务器拓扑",
+                                    "parentId": "1239468570501582848",
+                                    "status": ""
+                                },
+                                {
+                                    "path": "",
+                                    "icon": "el-icon-coin",
+                                    "name": "",
+                                    "navigationBarId": "1239459230398943232",
+                                    "id": "1239469017178181632",
+                                    "title": "应用拓扑",
+                                    "parentId": "1239468570501582848",
+                                    "status": ""
+                                },
+                                {
+                                    "path": "",
+                                    "icon": "el-icon-coin",
+                                    "name": "",
+                                    "navigationBarId": "1239459230398943232",
+                                    "id": "1239468861636612096",
+                                    "title": "网络拓扑",
+                                    "parentId": "1239468570501582848",
+                                    "status": ""
+                                }
+                            ],
+                            "icon": "el-icon-document-copy",
+                            "name": "",
+                            "navigationBarId": "1239459230398943232",
+                            "id": "1239468570501582848",
+                            "title": "拓扑管理",
+                            "parentId": "0",
+                            "status": ""
+                        }
+                    ],
+                    [
+                        {
+                            "path": "/operation/host-manage",
+                            "children": [
+                                {
+                                    "path": "",
+                                    "icon": "el-icon-monitor",
+                                    "name": "",
+                                    "navigationBarId": "1239459230398943232",
+                                    "id": "1239467276428775424",
+                                    "title": "设备",
+                                    "parentId": "1239466632036880384",
+                                    "status": ""
+                                },
+                                {
+                                    "path": "",
+                                    "icon": "el-icon-document-checked",
+                                    "name": "",
+                                    "navigationBarId": "1239459230398943232",
+                                    "id": "1239467786045100032",
+                                    "title": "授权",
+                                    "parentId": "1239466632036880384",
+                                    "status": ""
+                                },
+                                {
+                                    "path": "/operation/host-manage/device-group",
+                                    "icon": "el-icon-coin",
+                                    "name": "",
+                                    "navigationBarId": "1239459230398943232",
+                                    "id": "1239467121579266048",
+                                    "title": "设备组",
+                                    "parentId": "1239466632036880384",
+                                    "status": ""
+                                }
+                            ],
+                            "icon": "el-icon-monitor",
+                            "name": "",
+                            "navigationBarId": "1239459230398943232",
+                            "id": "1239466632036880384",
+                            "title": "主机管理",
+                            "parentId": "0",
+                            "status": ""
+                        }
+                    ]
+                ],
+                "icon": "el-icon-monitor",
+                "name": "operation",
+                "id": "1239459230398943232",
+                "title": "运维",
+                "url": "",
+                "status": ""
+            },
+            {
+                "path": "",
+                "icon": "el-icon-coin",
+                "name": "",
+                "id": "1239462308909027328",
+                "title": "资产",
+                "url": "",
+                "status": ""
+            },
+            {
+                "path": "",
+                "icon": "el-icon-notebook-2",
+                "name": "",
+                "id": "1239463413764198400",
+                "title": "审计",
+                "url": "",
+                "status": ""
+            },
+            {
+                "path": "",
+                "icon": "el-icon-weixiu",
+                "name": "",
+                "id": "1239463560669696000",
+                "title": "报修",
+                "url": "",
+                "status": ""
+            }
+        ],
+        "apis": []
+    }
+}

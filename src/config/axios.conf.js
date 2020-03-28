@@ -7,7 +7,7 @@ import qs from 'qs'
 axios.defaults.timeout = 5000;
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 // const baseUrl = '/app/'
-const baseUrl = 'http://106.12.209.249:1001/'
+const baseUrl = 'http://220.194.140.131:3907/auth/'
 //const baseUrl = '/local/';
 //const baseUrl = '/mobile/';
 
