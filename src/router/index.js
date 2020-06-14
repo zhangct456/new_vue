@@ -14,6 +14,11 @@ const routes = [
         redirect: '/login',
     },
     {
+        path: "/fullPage",
+        name: "fullPage",
+        component: () => import('@/pages/FullPage')
+    },
+    {
         path: '/login',
         name: 'login',
         component: () => import('@/pages/Login/Login')
@@ -50,7 +55,7 @@ const route = new Router({
 })
 
 //  不检测登录状态的页面
-const noCheckRoute = ['login'];
+const noCheckRoute = ['login', 'fullPage'];
 
 route.beforeEach((to, from, next) => {
     if (to.matched.length === 0) {

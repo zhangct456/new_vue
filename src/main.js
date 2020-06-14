@@ -4,6 +4,9 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import router from './router';
 import config from './config';
+import dataV from '@jiaminghi/data-view'
+
+Vue.use(dataV)
 
 // 自定义全局组件
 
